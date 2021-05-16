@@ -1,0 +1,23 @@
+
+"generic.unknown" = "Unknown";
+"generic.ok" = "OK";
+"generic.error" = "Error";
+
+"characters.title" = "Characters";
+"character.birthday" = "Birthday: ";
+"character.birthday.unknown" = "Unknown";
+"character.occupation" = "Occupation:\n";
+"character.status" = "Status: ";
+"character.nickname" = "Nickname: ";
+"character.portrayedBy" = "Portrayed by: ";
+"character.seasons" = "Seasons:\n";
+"character.noQuotes" = "There are no quotes for this character.";
+
+"review" = "Review";
+"review.title" = "Write a review";
+"review.yourName" = "Your name";
+"review.watchedDate" = "Watched date";
+"review.placeholder" = "Write your review here";
+"review.submit" = "Submit";
+"review.rating" = "Rating";
+"review.error.missingFields" = "Please fill all the fields";

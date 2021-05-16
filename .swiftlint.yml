@@ -1,0 +1,39 @@
+opt_in_rules: 
+  - modifier_order
+  - empty_string
+  - empty_count
+  - anyobject_protocol
+  - attributes
+  - legacy_random
+  - private_outlet
+  - private_action
+  - redundant_nil_coalescing
+  - sorted_imports
+  - unused_import
+  - prefer_self_type_over_type_of_self
+  - toggle_bool
+  - unneeded_parentheses_in_closure_argument
+  - fallthrough
+  - strong_iboutlet
+  - unavailable_function
+  - unused_declaration
+  - implicit_return
+  - pattern_matching_keywords
+  - prefer_zero_over_explicit_init
+  - private_over_fileprivate
+  - yoda_condition
+  - force_unwrapping
+
+included:
+  - BreakingBad
+
+excluded: 
+  - Pods
+  - BreakingBad/Resources/R.generated.swift
+
+identifier_name:
+  excluded:
+    - rx
+    - id
+
+reporter: "xcode"
