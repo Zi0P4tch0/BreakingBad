@@ -15,7 +15,7 @@ extension Reactive where Base: UIViewController {
             let alertViewController = UIAlertController(title: value.title,
                                                         message: value.message,
                                                         preferredStyle: .alert)
-            alertViewController.addAction(UIAlertAction(title: R.string.localizable.genericOk(),
+            alertViewController.addAction(UIAlertAction(title: Strings.genericOk(),
                                                         style: .default,
                                                         handler: nil))
             target.present(alertViewController, animated: true)

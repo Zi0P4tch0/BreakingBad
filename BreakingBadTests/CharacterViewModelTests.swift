@@ -82,6 +82,7 @@ class CharacterViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(imageObserver.events, [
+            .next(0, nil),
             .next(20, image),
             .completed(20)
         ])
@@ -102,7 +103,7 @@ class CharacterViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        let expected = CharacterViewModel.attributedString(boldPart: R.string.localizable.characterBirthday(),
+        let expected = CharacterViewModel.attributedString(boldPart: Strings.characterBirthday(),
                                                            normalPart: birthdayDateFormatter.string(from: date))
 
         XCTAssertEqual(dateObserver.events, [
@@ -142,7 +143,7 @@ class CharacterViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        let expected = CharacterViewModel.attributedString(boldPart: R.string.localizable.characterOccupation(),
+        let expected = CharacterViewModel.attributedString(boldPart: Strings.characterOccupation(),
                                                            normalPart: Character.fake().occupation.joined(separator: "\n"))
 
         XCTAssertEqual(occupationObserver.events, [

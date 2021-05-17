@@ -86,30 +86,31 @@ final class CharacterViewModel: CharacterViewModelType,
 
         let birthDate =
             character.birthday.map { birthdayDateFormatter.string(from: $0) } ??
-            R.string.localizable.characterBirthdayUnknown()
+            Strings.characterBirthdayUnknown()
 
         birthday = .just(
-            formatter(R.string.localizable.characterBirthday(), birthDate)
+            formatter(Strings.characterBirthday(), birthDate)
         )
 
         occupation = .just(
-            formatter(R.string.localizable.characterOccupation(), character.occupation.joined(separator: "\n"))
+            formatter(Strings.characterOccupation(),
+                      character.occupation.joined(separator: "\n"))
         )
 
         status = .just(
-            formatter(R.string.localizable.characterStatus(), character.status)
+            formatter(Strings.characterStatus(), character.status)
         )
 
         nickname = .just(
-            formatter(R.string.localizable.characterNickname(), character.nickname)
+            formatter(Strings.characterNickname(), character.nickname)
         )
 
         portrayedBy = .just(
-            formatter(R.string.localizable.characterPortrayedBy(), character.portrayedBy)
+            formatter(Strings.characterPortrayedBy(), character.portrayedBy)
         )
 
         seasons = .just(
-            formatter(R.string.localizable.characterSeasons(),
+            formatter(Strings.characterSeasons(),
                       character.appearance.map { "\($0)" }.joined(separator: ", "))
         )
 
@@ -135,7 +136,7 @@ final class CharacterViewModel: CharacterViewModelType,
             .map {
                 // Show an alternative message in case there are no quotes.
                 $0.isEmpty ?
-                    [NSAttributedString(string: R.string.localizable.characterNoQuotes(),
+                    [NSAttributedString(string: Strings.characterNoQuotes(),
                                         attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .semibold),
                                                      .foregroundColor: UIColor.systemGray])] :
                     $0

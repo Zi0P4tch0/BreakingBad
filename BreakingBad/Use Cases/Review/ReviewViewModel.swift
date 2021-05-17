@@ -44,7 +44,7 @@ final class ReviewViewModel: ReviewViewModelType,
 
     init(character: Character, reviewRepository: ReviewRepositoryType) {
 
-        title = .just(R.string.localizable.reviewTitle())
+        title = .just(Strings.reviewTitle())
 
         let submit = submit.flatMap {
             reviewRepository.review(character: character, with: $0).asObservable().materialize()
@@ -53,11 +53,11 @@ final class ReviewViewModel: ReviewViewModelType,
         // Show an alert if there's a validation error or a network one.
         alert = Observable.merge(
             formErrors.filter { !$0.isEmpty }.map { _ in
-                AlertViewModel(title: R.string.localizable.genericError(),
-                               message: R.string.localizable.reviewErrorMissingFields())
+                AlertViewModel(title: Strings.genericError(),
+                               message: Strings.reviewErrorMissingFields())
             },
             submit.compactMap { $0.error }.map {
-                AlertViewModel(title: R.string.localizable.genericError(),
+                AlertViewModel(title: Strings.genericError(),
                                message: $0.localizedDescription)
             }
         )

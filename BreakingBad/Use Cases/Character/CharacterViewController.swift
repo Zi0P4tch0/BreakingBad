@@ -72,12 +72,12 @@ final class CharacterViewController: UIViewController {
     }(UILabel(frame: .zero))
 
     lazy var likeButton: UIButton = {
-        $0.setImage(R.image.like.highlighted(), for: .highlighted)
-        $0.setImage(R.image.like.normal(), for: .normal)
+        $0.setImage(Images.like.highlighted(), for: .highlighted)
+        $0.setImage(Images.like.normal(), for: .normal)
         return $0
     }(UIButton(frame: .zero))
 
-    let rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.review(),
+    let rightBarButtonItem = UIBarButtonItem(title: Strings.review(),
                                              style: .plain,
                                              target: nil,
                                              action: nil)

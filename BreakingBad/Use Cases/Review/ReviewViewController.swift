@@ -28,23 +28,23 @@ final class ReviewViewController: FormViewController {
         super.viewDidLoad()
 
         let nameRow = TextRow(Tag.name.rawValue) {
-            $0.title = R.string.localizable.reviewYourName()
+            $0.title = Strings.reviewYourName()
             $0.add(rule: RuleRequired())
         }
 
         let dateRow = DateInlineRow(Tag.date.rawValue) {
-            $0.title = R.string.localizable.reviewWatchedDate()
+            $0.title = Strings.reviewWatchedDate()
             $0.value = Date()
             $0.add(rule: RuleRequired())
         }
 
         let reviewRow = TextAreaRow(Tag.review.rawValue) {
-            $0.placeholder = R.string.localizable.reviewPlaceholder()
+            $0.placeholder = Strings.reviewPlaceholder()
             $0.add(rule: RuleRequired())
         }
 
         let ratingRow = PickerInlineRow<Int>(Tag.rating.rawValue) {
-            $0.title = R.string.localizable.reviewRating()
+            $0.title = Strings.reviewRating()
             $0.options = Array(1...10)
             $0.add(rule: RuleRequired())
         }

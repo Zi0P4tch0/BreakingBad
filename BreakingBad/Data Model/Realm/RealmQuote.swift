@@ -32,7 +32,7 @@ extension RealmQuote {
     func toValue() -> Quote {
         Quote(id: id,
               text: text,
-              author: author?.name ?? R.string.localizable.genericUnknown())
+              author: author?.name ?? Strings.genericUnknown())
     }
 
 }
