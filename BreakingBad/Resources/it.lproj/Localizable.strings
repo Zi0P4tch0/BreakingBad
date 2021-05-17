@@ -1,0 +1,25 @@
+
+"generic.unknown" = "Sconosciuto";
+"generic.ok" = "OK";
+"generic.error" = "Errore";
+
+"characters.title" = "Personaggi";
+"characters.empty" = "Non ci sono personaggi da mostrare.";
+
+"character.birthday" = "Compleanno: ";
+"character.birthday.unknown" = "Sconosciuto";
+"character.occupation" = "Lavoro:\n";
+"character.status" = "Stato: ";
+"character.nickname" = "Soprannome: ";
+"character.portrayedBy" = "Recitato da: ";
+"character.seasons" = "Stagioni:\n";
+"character.noQuotes" = "Non ci sono citazioni per questo personaggio.";
+
+"review" = "Recensione";
+"review.title" = "Scrivi una recensione";
+"review.yourName" = "Il tuo nome";
+"review.watchedDate" = "Data";
+"review.placeholder" = "Scrivi qui la tua recensione";
+"review.submit" = "Invia";
+"review.rating" = "Voto";
+"review.error.missingFields" = "Per favore riempi tutti i campi";
