@@ -16,6 +16,11 @@ def pods
   pod 'Eureka', '5.3.3'
 end
 
+def testPods
+  pod 'RxTest', '6.2.0'
+  pod 'RxBlocking', '6.2.0'
+end
+
 def macOSTools
   pod 'SwiftLint'
 end
@@ -23,6 +28,10 @@ end
 target 'BreakingBad' do
   pods
   macOSTools
+  target 'BreakingBadTests' do
+    inherit! :search_paths
+    testPods
+  end
 end
 
 post_install do |installer|

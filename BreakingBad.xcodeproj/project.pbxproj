@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		017C51FBA696A1BDB51856BA /* Pods_BreakingBadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */; };
 		3CFDBA8871F7EBB6022B7C38 /* Pods_BreakingBad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */; };
 		952DF6852652A5A2005CE20E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6842652A5A2005CE20E /* Review.swift */; };
+		952DF68E2652A802005CE20E /* CharactersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF68D2652A802005CE20E /* CharactersViewModelTests.swift */; };
+		952DF6972652B628005CE20E /* FakeCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6962652B628005CE20E /* FakeCharacterRepository.swift */; };
+		952DF69A2652B668005CE20E /* Character+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6992652B668005CE20E /* Character+Fake.swift */; };
 		953168F5264EEEAB003BC163 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168F4264EEEAB003BC163 /* R.generated.swift */; };
 		953168FB264EF006003BC163 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168FA264EF006003BC163 /* CoordinatorFactory.swift */; };
 		95316902264EF1B4003BC163 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95316901264EF1B4003BC163 /* Router.swift */; };
@@ -45,10 +49,27 @@
 		95FF6CC2264FBF1C0026D580 /* CharacterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FF6CC1264FBF1C0026D580 /* CharacterCoordinator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		952DF6902652A802005CE20E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95A11783264EE6DE00501EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95A1178A264EE6DE00501EC5;
+			remoteInfo = BreakingBad;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadTests.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadTests/Pods-BreakingBadTests.release.xcconfig"; sourceTree = "<group>"; };
 		7904AE9FEA6674E5C2ED3517 /* Pods-BreakingBad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBad.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBad/Pods-BreakingBad.debug.xcconfig"; sourceTree = "<group>"; };
 		91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952DF6842652A5A2005CE20E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		952DF68B2652A802005CE20E /* BreakingBadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		952DF68D2652A802005CE20E /* CharactersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelTests.swift; sourceTree = "<group>"; };
+		952DF68F2652A802005CE20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		952DF6962652B628005CE20E /* FakeCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCharacterRepository.swift; sourceTree = "<group>"; };
+		952DF6992652B668005CE20E /* Character+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Fake.swift"; sourceTree = "<group>"; };
 		953168F4264EEEAB003BC163 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		953168FA264EF006003BC163 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		95316901264EF1B4003BC163 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -86,9 +107,18 @@
 		95FF6CBE264FBC760026D580 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		95FF6CC1264FBF1C0026D580 /* CharacterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCoordinator.swift; sourceTree = "<group>"; };
 		A203C6C68F78CEF4D06FC22C /* Pods-BreakingBad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBad.release.xcconfig"; path = "Target Support Files/Pods-BreakingBad/Pods-BreakingBad.release.xcconfig"; sourceTree = "<group>"; };
+		C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadTests.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadTests/Pods-BreakingBadTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		952DF6882652A802005CE20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				017C51FBA696A1BDB51856BA /* Pods_BreakingBadTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95A11788264EE6DE00501EC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +136,33 @@
 				952DF6842652A5A2005CE20E /* Review.swift */,
 			);
 			path = Payloads;
+			sourceTree = "<group>";
+		};
+		952DF68C2652A802005CE20E /* BreakingBadTests */ = {
+			isa = PBXGroup;
+			children = (
+				952DF6982652B65A005CE20E /* Extensions */,
+				952DF6952652B61C005CE20E /* Networking */,
+				952DF68D2652A802005CE20E /* CharactersViewModelTests.swift */,
+				952DF68F2652A802005CE20E /* Info.plist */,
+			);
+			path = BreakingBadTests;
+			sourceTree = "<group>";
+		};
+		952DF6952652B61C005CE20E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				952DF6962652B628005CE20E /* FakeCharacterRepository.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		952DF6982652B65A005CE20E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				952DF6992652B668005CE20E /* Character+Fake.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		953168FF264EF156003BC163 /* Characters */ = {
@@ -156,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				95A1178D264EE6DF00501EC5 /* BreakingBad */,
+				952DF68C2652A802005CE20E /* BreakingBadTests */,
 				95A1178C264EE6DF00501EC5 /* Products */,
 				D97DA23509EAC348E1B704DA /* Pods */,
 				DBDB3939876857D30B288202 /* Frameworks */,
@@ -166,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				95A1178B264EE6DF00501EC5 /* BreakingBad.app */,
+				952DF68B2652A802005CE20E /* BreakingBadTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +329,8 @@
 			children = (
 				7904AE9FEA6674E5C2ED3517 /* Pods-BreakingBad.debug.xcconfig */,
 				A203C6C68F78CEF4D06FC22C /* Pods-BreakingBad.release.xcconfig */,
+				C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */,
+				6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -278,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */,
+				594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,6 +347,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		952DF68A2652A802005CE20E /* BreakingBadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952DF6922652A802005CE20E /* Build configuration list for PBXNativeTarget "BreakingBadTests" */;
+			buildPhases = (
+				149E021CC58B274107514633 /* [CP] Check Pods Manifest.lock */,
+				952DF6872652A802005CE20E /* Sources */,
+				952DF6882652A802005CE20E /* Frameworks */,
+				952DF6892652A802005CE20E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				952DF6912652A802005CE20E /* PBXTargetDependency */,
+			);
+			name = BreakingBadTests;
+			productName = BreakingBadTests;
+			productReference = 952DF68B2652A802005CE20E /* BreakingBadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		95A1178A264EE6DE00501EC5 /* BreakingBad */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95A1179F264EE6DF00501EC5 /* Build configuration list for PBXNativeTarget "BreakingBad" */;
@@ -314,6 +395,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					952DF68A2652A802005CE20E = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 95A1178A264EE6DE00501EC5;
+					};
 					95A1178A264EE6DE00501EC5 = {
 						CreatedOnToolsVersion = 12.5;
 						LastSwiftMigration = 1250;
@@ -334,11 +419,19 @@
 			projectRoot = "";
 			targets = (
 				95A1178A264EE6DE00501EC5 /* BreakingBad */,
+				952DF68A2652A802005CE20E /* BreakingBadTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		952DF6892652A802005CE20E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95A11789264EE6DE00501EC5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,6 +445,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		149E021CC58B274107514633 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BreakingBadTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		78E620EF354C13EE2D91427B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +530,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		952DF6872652A802005CE20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952DF6972652B628005CE20E /* FakeCharacterRepository.swift in Sources */,
+				952DF69A2652B668005CE20E /* Character+Fake.swift in Sources */,
+				952DF68E2652A802005CE20E /* CharactersViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95A11787264EE6DE00501EC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +581,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		952DF6912652A802005CE20E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95A1178A264EE6DE00501EC5 /* BreakingBad */;
+			targetProxy = 952DF6902652A802005CE20E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		95A11799264EE6DF00501EC5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -468,6 +601,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		952DF6932652A802005CE20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DSM3BQ7EM4;
+				INFOPLIST_FILE = BreakingBadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.codecraft.BreakingBadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakingBad.app/BreakingBad";
+			};
+			name = Debug;
+		};
+		952DF6942652A802005CE20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DSM3BQ7EM4;
+				INFOPLIST_FILE = BreakingBadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = it.codecraft.BreakingBadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakingBad.app/BreakingBad";
+			};
+			name = Release;
+		};
 		95A1179D264EE6DF00501EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -634,6 +809,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		952DF6922652A802005CE20E /* Build configuration list for PBXNativeTarget "BreakingBadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952DF6932652A802005CE20E /* Debug */,
+				952DF6942652A802005CE20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		95A11786264EE6DE00501EC5 /* Build configuration list for PBXProject "BreakingBad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

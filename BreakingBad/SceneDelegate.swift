@@ -13,6 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = scene as? UIWindowScene else { return }
 
+        #if DEBUG
+        // Don't run the whole app if unit tests are running
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            return
+        }
+        #endif
+
         window = UIWindow(windowScene: windowScene)
 
         coordinatorFactory = CoordinatorFactory()
