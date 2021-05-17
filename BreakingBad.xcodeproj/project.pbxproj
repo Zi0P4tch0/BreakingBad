@@ -41,6 +41,7 @@
 		95D79772264F3B8A0008E79A /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D79771264F3B8A0008E79A /* CharactersViewController.swift */; };
 		95D79774264F3BA60008E79A /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D79773264F3BA60008E79A /* CharactersViewModel.swift */; };
 		95E137B32653345F00DD9493 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95E137B52653345F00DD9493 /* Localizable.strings */; };
+		95E137BA2653394000DD9493 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E137B92653394000DD9493 /* main.swift */; };
 		95E627A226509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A126509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift */; };
 		95E627A5265118AD007DCB8C /* RealmCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A4265118AD007DCB8C /* RealmCharacter.swift */; };
 		95E627A726511EB3007DCB8C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A626511EB3007DCB8C /* Character.swift */; };
@@ -107,6 +108,7 @@
 		95E137B62653348500DD9493 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E137B72653349300DD9493 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = it; path = it.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E137B82653349400DD9493 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		95E137B92653394000DD9493 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		95E627A126509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+Utils.swift"; sourceTree = "<group>"; };
 		95E627A4265118AD007DCB8C /* RealmCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCharacter.swift; sourceTree = "<group>"; };
 		95E627A626511EB3007DCB8C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				95A1179C264EE6DF00501EC5 /* Info.plist */,
+				95E137B92653394000DD9493 /* main.swift */,
 				95E627AE26514494007DCB8C /* Typealiases.swift */,
 				95A1178E264EE6DF00501EC5 /* AppDelegate.swift */,
 				95A11790264EE6DF00501EC5 /* SceneDelegate.swift */,
@@ -573,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D79772264F3B8A0008E79A /* CharactersViewController.swift in Sources */,
+				95E137BA2653394000DD9493 /* main.swift in Sources */,
 				95A117A6264EE94200501EC5 /* AppCoordinator.swift in Sources */,
 				952DF6AB26530B81005CE20E /* UIView+Pulse.swift in Sources */,
 				95A162972651BD0700C2020A /* Repository+Review.swift in Sources */,

@@ -25,6 +25,7 @@ PODS:
   - RxSwift (6.2.0)
   - RxTest (6.2.0):
     - RxSwift (= 6.2.0)
+  - ShowTime (2.5.2)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - RxRealm (= 5.0.1)
   - RxSwift (= 6.2.0)
   - RxTest (= 6.2.0)
+  - ShowTime (= 2.5.2)
   - SwiftLint
 
 SPEC REPOS:
@@ -55,6 +57,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxTest
+    - ShowTime
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -71,8 +74,9 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
+  ShowTime: 5cb2c5314da2983cec44f27123a15473cf29306f
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: d6f3a8b9267da28fd4fede274acab2632f131883
+PODFILE CHECKSUM: 05773e31977b364d82fbd7998722d10588aedd4d
 
 COCOAPODS: 1.10.1

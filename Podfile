@@ -14,6 +14,7 @@ def pods
   pod 'RealmSwift', '10.7.6'
   pod 'RxRealm', '5.0.1'
   pod 'Eureka', '5.3.3'
+  pod 'ShowTime', '2.5.2', :configurations => ['Debug']
 end
 
 def testPods
@@ -43,5 +44,17 @@ post_install do |installer|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.1'
     end
   end
+
+  # This enables RxSwift resource tracing for Debug* builds
+    puts 'Enabling RxSwift resource tracing for Debug builds...'
+    installer.pods_project.targets.each do |target|
+       if target.name == 'RxSwift'
+          target.build_configurations.each do |config|
+             if config.name == 'Debug'
+                config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['-D', 'TRACE_RESOURCES']
+             end
+          end
+       end
+    end
 
 end
