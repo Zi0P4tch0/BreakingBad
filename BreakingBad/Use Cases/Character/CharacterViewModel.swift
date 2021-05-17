@@ -190,7 +190,7 @@ final class CharacterViewModel: CharacterViewModelType,
 
 extension CharacterViewModel {
 
-    private static func attributedString(boldPart: String, normalPart: String) -> NSAttributedString {
+    static func attributedString(boldPart: String, normalPart: String) -> NSAttributedString {
         let attributedString =
             NSMutableAttributedString(string: boldPart,
                                       attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .bold)])
@@ -205,7 +205,7 @@ extension CharacterViewModel {
 
 // MARK: - Quote + Attributed String Representation
 
-private extension Quote {
+extension Quote {
 
     var attributedString: NSAttributedString {
         NSAttributedString(string: "\"\(text)\"",

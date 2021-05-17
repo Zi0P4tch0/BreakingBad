@@ -1,7 +1,6 @@
 @testable import BreakingBad
 import XCTest
 import RxTest
-import RxBlocking
 
 class CharactersViewModelTests: XCTestCase {
 

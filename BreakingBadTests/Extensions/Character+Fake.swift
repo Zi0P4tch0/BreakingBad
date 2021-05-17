@@ -1,14 +1,13 @@
 @testable import BreakingBad
 import XCTest
 import RxTest
-import RxBlocking
 
 extension Character {
 
-    static func fake(id: Int = 0) -> Character {
+    static func fake(id: Int = 0, birthday: Date? = nil) -> Character {
         Character(id: id,
                   name: "Carlos Matos",
-                  birthday: nil,
+                  birthday: birthday,
                   occupation: ["Bitconnect CEO"],
                   image: URL(string: "www.google.com")!,
                   status: "At Large",
