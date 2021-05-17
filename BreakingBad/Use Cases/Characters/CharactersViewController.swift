@@ -27,6 +27,11 @@ final class CharactersViewController: UIViewController {
 
     // MARK: Views
 
+    lazy var emptyLabel: UILabel = {
+        $0.font = UIFont.systemFont(ofSize: 16)
+        return $0
+    }(UILabel(frame: .zero))
+
     lazy var tableView: UITableView = {
         $0.registerCell(UITableViewCell.self)
         return $0
@@ -37,9 +42,11 @@ final class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setup the view hierarchy
+        view.addSubview(emptyLabel)
         view.addSubview(tableView)
-        constrain(view, tableView) { view, tableView in
+        constrain(view, tableView, emptyLabel) { view, tableView, emptyLabel in
             tableView.edges == view.edges
+            emptyLabel.center == view.center
         }
         // Rx bindings
         bind(viewModel.outputs)
@@ -62,6 +69,14 @@ extension CharactersViewController {
 
         outputs.characters
             .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        outputs.emptyText
+            .drive(emptyLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        outputs.tableViewAlpha
+            .drive(tableView.rx.alpha)
             .disposed(by: disposeBag)
 
     }

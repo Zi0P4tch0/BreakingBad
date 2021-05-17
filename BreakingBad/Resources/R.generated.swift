@@ -191,7 +191,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
     struct localizable {
       /// Value: Birthday: 
       static let characterBirthday = Rswift.StringResource(key: "character.birthday", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -219,6 +219,8 @@ struct R: Rswift.Validatable {
       static let characterStatus = Rswift.StringResource(key: "character.status", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Submit
       static let reviewSubmit = Rswift.StringResource(key: "review.submit", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: There are no characters to display.
+      static let charactersEmpty = Rswift.StringResource(key: "characters.empty", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: There are no quotes for this character.
       static let characterNoQuotes = Rswift.StringResource(key: "character.noQuotes", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown
@@ -401,6 +403,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("review.submit", bundle: bundle, comment: "")
+      }
+
+      /// Value: There are no characters to display.
+      static func charactersEmpty(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("characters.empty", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "characters.empty"
+        }
+
+        return NSLocalizedString("characters.empty", bundle: bundle, comment: "")
       }
 
       /// Value: There are no quotes for this character.

@@ -4,6 +4,8 @@
 "generic.error" = "Error";
 
 "characters.title" = "Characters";
+"characters.empty" = "There are no characters to display.";
+
 "character.birthday" = "Birthday: ";
 "character.birthday.unknown" = "Unknown";
 "character.occupation" = "Occupation:\n";

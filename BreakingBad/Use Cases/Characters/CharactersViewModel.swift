@@ -5,6 +5,8 @@ import RxRealm
 
 protocol CharactersViewModelOutputs {
     var title: Driver<String> { get }
+    var emptyText: Driver<String> { get }
+    var tableViewAlpha: Driver<CGFloat> { get }
     var characters: Driver<[Character]> { get }
 }
 
@@ -32,8 +34,10 @@ final class CharactersViewModel: CharactersViewModelType,
 
     // MARK: Outputs
 
-    let title: Driver<String> = .just(R.string.localizable.charactersTitle())
+    let title: Driver<String> = .just(Strings.charactersTitle())
     let characters: Driver<[Character]>
+    let emptyText: Driver<String> = .just(Strings.charactersEmpty())
+    let tableViewAlpha: Driver<CGFloat>
 
     // MARK: Inputs
 
@@ -65,6 +69,8 @@ final class CharactersViewModel: CharactersViewModelType,
         characters = Observable.collection(from: storedCharacters)
             .map { $0.map { $0.toValue() } }
             .asDriver(onErrorJustReturn: [])
+
+        tableViewAlpha = characters.map { $0.isEmpty ? 0 : 1 }
 
     }
 

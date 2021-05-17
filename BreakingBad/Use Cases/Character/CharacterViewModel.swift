@@ -4,6 +4,7 @@ import UIKit
 
 protocol CharacterViewModelOutputs {
     var title: Driver<String> { get }
+    var isImageLoading: Driver<Bool> { get }
     var image: Driver<UIImage?> { get }
     var birthday: Driver<NSAttributedString> { get }
     var occupation: Driver<NSAttributedString> { get }
@@ -53,6 +54,7 @@ final class CharacterViewModel: CharacterViewModelType,
     let quotes: Driver<NSAttributedString>
     let likeButtonHighlighted: Driver<Bool>
     let presentReview: Driver<Character>
+    let isImageLoading: Driver<Bool>
 
     // MARK: Inputs
 
@@ -76,7 +78,12 @@ final class CharacterViewModel: CharacterViewModelType,
         title = .just(character.name)
 
         image = imageService.fetchImage(url: character.image)
+                            .asObservable()
+                            .startWith(nil)
                             .asDriver(onErrorJustReturn: nil)
+
+        isImageLoading = image.map { $0 == nil }
+
         let birthDate =
             character.birthday.map { birthdayDateFormatter.string(from: $0) } ??
             R.string.localizable.characterBirthdayUnknown()

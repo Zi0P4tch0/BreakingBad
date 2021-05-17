@@ -26,7 +26,7 @@ final class CharacterViewController: UIViewController {
     let scrollView = UIScrollView(frame: .zero)
 
     lazy var imageView: UIImageView = {
-        $0.backgroundColor = .gray
+        $0.backgroundColor = .gray.withAlphaComponent(0.5)
         $0.contentMode = .scaleAspectFit
         return $0
     }(UIImageView(frame: .zero))
@@ -203,11 +203,15 @@ extension CharacterViewController {
                 self.delegate?.didTapReview(for: character)
             })
             .disposed(by: disposeBag)
+
+        outputs.isImageLoading
+            .drive(imageView.rx.isLoading)
+            .disposed(by: disposeBag)
     }
 
     func bind(_ inputs: CharacterViewModelInputs) {
 
-        likeButton.rx.tap
+        likeButton.rx.pulseTap
             .bind(to: inputs.likeButtonTapped)
             .disposed(by: disposeBag)
 

@@ -16,6 +16,8 @@
 		952DF69C2652B733005CE20E /* CharacterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF69B2652B733005CE20E /* CharacterViewModelTests.swift */; };
 		952DF69F2652B83C005CE20E /* FakeImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF69E2652B83C005CE20E /* FakeImageService.swift */; };
 		952DF6A12652B8F2005CE20E /* FakeQuoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6A02652B8F2005CE20E /* FakeQuoteRepository.swift */; };
+		952DF6AB26530B81005CE20E /* UIView+Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6AA26530B81005CE20E /* UIView+Pulse.swift */; };
+		952DF6AD265311FA005CE20E /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6AC265311FA005CE20E /* UIView+Loading.swift */; };
 		953168F5264EEEAB003BC163 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168F4264EEEAB003BC163 /* R.generated.swift */; };
 		953168FB264EF006003BC163 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168FA264EF006003BC163 /* CoordinatorFactory.swift */; };
 		95316902264EF1B4003BC163 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95316901264EF1B4003BC163 /* Router.swift */; };
@@ -76,6 +78,8 @@
 		952DF69B2652B733005CE20E /* CharacterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModelTests.swift; sourceTree = "<group>"; };
 		952DF69E2652B83C005CE20E /* FakeImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeImageService.swift; sourceTree = "<group>"; };
 		952DF6A02652B8F2005CE20E /* FakeQuoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQuoteRepository.swift; sourceTree = "<group>"; };
+		952DF6AA26530B81005CE20E /* UIView+Pulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pulse.swift"; sourceTree = "<group>"; };
+		952DF6AC265311FA005CE20E /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		953168F4264EEEAB003BC163 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		953168FA264EF006003BC163 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		95316901264EF1B4003BC163 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				95FF6CBE264FBC760026D580 /* UITableView+Utils.swift */,
 				95E627A126509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift */,
 				95A408C32651A23A00872AA3 /* UIViewController+RxAlert.swift */,
+				952DF6AA26530B81005CE20E /* UIView+Pulse.swift */,
+				952DF6AC265311FA005CE20E /* UIView+Loading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 			files = (
 				95D79772264F3B8A0008E79A /* CharactersViewController.swift in Sources */,
 				95A117A6264EE94200501EC5 /* AppCoordinator.swift in Sources */,
+				952DF6AB26530B81005CE20E /* UIView+Pulse.swift in Sources */,
 				95A162972651BD0700C2020A /* Repository+Review.swift in Sources */,
 				95A408C0265195DD00872AA3 /* ReviewViewModel.swift in Sources */,
 				95E627A226509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift in Sources */,
@@ -596,6 +603,7 @@
 				95E627AB26511FC0007DCB8C /* Repository+Quotes.swift in Sources */,
 				95D79770264F3A430008E79A /* CharactersCoordinator.swift in Sources */,
 				95A408C2265195E600872AA3 /* ReviewViewController.swift in Sources */,
+				952DF6AD265311FA005CE20E /* UIView+Loading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

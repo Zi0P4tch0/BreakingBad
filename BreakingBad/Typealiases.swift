@@ -26,3 +26,4 @@ typealias Binder = RxSwift.Binder
 typealias Reactive = RxSwift.Reactive
 typealias Event = RxSwift.Event
 typealias RxTableViewDataSourceType = RxCocoa.RxTableViewDataSourceType
+typealias ControlEvent = RxCocoa.ControlEvent
