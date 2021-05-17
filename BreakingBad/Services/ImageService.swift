@@ -7,7 +7,7 @@ protocol ImageServiceType {
     func fetchImage(url: URL) -> Single<UIImage?>
 }
 
-// MARK: - ImageService
+// MARK: - Implementation
 
 final class ImageService {
 
@@ -19,23 +19,21 @@ extension ImageService: ImageServiceType {
 
     func fetchImage(url: URL) -> Single<UIImage?> {
 
-        Single.create { observer in
+        let queue = DispatchQueue.global(qos: .userInitiated)
+
+        return Single.create { observer in
 
             let task =
                 KingfisherManager.shared
                     .retrieveImage(with: url,
-                                   options: [],
+                                   options: [.callbackQueue(.dispatch(queue))],
                                    progressBlock: nil,
                                    downloadTaskUpdated: nil) { result in
                 switch result {
                 case .success(let imageResult):
-                    DispatchQueue.main.async {
-                        observer(.success(imageResult.image))
-                    }
+                    observer(.success(imageResult.image))
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        observer(.failure(error))
-                    }
+                    observer(.failure(error))
                 }
             }
 

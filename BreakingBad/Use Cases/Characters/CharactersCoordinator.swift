@@ -1,15 +1,12 @@
-//
-//  CharactersCoordinator.swift
-//  BreakingBad
-//
-//  Created by Matteo Pacini on 15/05/2021.
-//
-
 import UIKit
+
+// MARK: - Protocol
 
 protocol CharactersCoordinatorType {
     func start(on window: UIWindow)
 }
+
+// MARK: - Implementation
 
 final class CharactersCoordinator {
 
@@ -26,6 +23,8 @@ final class CharactersCoordinator {
 
 }
 
+// MARK: - CharactersCoordinator + CharactersCoordinatorType
+
 extension CharactersCoordinator: CharactersCoordinatorType {
 
     func start(on window: UIWindow) {
@@ -39,6 +38,8 @@ extension CharactersCoordinator: CharactersCoordinatorType {
     }
 
 }
+
+// MARK: - CharactersCoordinator + CharactersViewControllerDelegate
 
 extension CharactersCoordinator: CharactersViewControllerDelegate {
 

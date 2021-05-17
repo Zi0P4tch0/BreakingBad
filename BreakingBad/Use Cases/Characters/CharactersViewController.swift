@@ -1,49 +1,56 @@
 import Cartography
 import UIKit
 
+// MARK: - Delegate
+
 protocol CharactersViewControllerDelegate: AnyObject {
     func didSelect(character: Character)
 }
+
+// MARK: - View Controller
 
 final class CharactersViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
-    // MARK: - Delegate
+    // MARK: Delegate
 
     weak var delegate: CharactersViewControllerDelegate?
 
-    // MARK: - View Model
+    // MARK: View Model
 
     var viewModel: CharactersViewModelType!
 
-    // MARK: - Data Source
+    // MARK: Data Source
 
     let dataSource = CharactersDataSource()
 
-    // MARK: - Views
+    // MARK: Views
 
     lazy var tableView: UITableView = {
         $0.registerCell(UITableViewCell.self)
         return $0
     }(UITableView(frame: .zero))
 
-    // MARK: - UIViewController Lifecycle
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup the view hierarchy
         view.addSubview(tableView)
         constrain(view, tableView) { view, tableView in
             tableView.edges == view.edges
         }
+        // Rx bindings
         bind(viewModel.outputs)
         bind(viewModel.inputs)
+        // Trigger "viewDidLoad" view model input
         viewModel.inputs.viewDidLoad.onNext(())
     }
 
 }
 
-// MARK: - CharactersViewController + Rx Bindings
+// MARK: - CharactersViewController + Rx
 
 extension CharactersViewController {
 

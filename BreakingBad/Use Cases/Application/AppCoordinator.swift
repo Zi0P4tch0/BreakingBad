@@ -1,8 +1,12 @@
 import UIKit
 
+// MARK: - Protocol
+
 protocol AppCoordinatorType {
     func start(on window: UIWindow)
 }
+
+// MARK: - Implementation
 
 final class AppCoordinator {
 
@@ -13,6 +17,8 @@ final class AppCoordinator {
     }
 
 }
+
+// MARK: - AppCoordinator + AppCoordinatorType
 
 extension AppCoordinator: AppCoordinatorType {
 

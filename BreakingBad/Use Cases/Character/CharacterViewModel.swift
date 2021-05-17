@@ -1,5 +1,6 @@
-import RealmSwift
 import UIKit
+
+// MARK: - Outputs
 
 protocol CharacterViewModelOutputs {
     var title: Driver<String> { get }
@@ -15,16 +16,22 @@ protocol CharacterViewModelOutputs {
     var presentReview: Driver<Character> { get }
 }
 
+// MARK: - Inputs
+
 protocol CharacterViewModelInputs {
     var viewDidLoad: PublishSubject<Void> { get }
     var likeButtonTapped: PublishSubject<Void> { get }
     var reviewTapped: PublishSubject<Void> { get }
 }
 
+// MARK: - Protocol
+
 protocol CharacterViewModelType {
     var outputs: CharacterViewModelOutputs { get }
     var inputs: CharacterViewModelInputs { get }
 }
+
+// MARK: - Implementation
 
 final class CharacterViewModel: CharacterViewModelType,
                                 CharacterViewModelOutputs,
@@ -33,7 +40,7 @@ final class CharacterViewModel: CharacterViewModelType,
     var outputs: CharacterViewModelOutputs { self }
     var inputs: CharacterViewModelInputs { self }
 
-    // MARK: - Outputs
+    // MARK: Outputs
 
     let title: Driver<String>
     let image: Driver<UIImage?>
@@ -47,15 +54,17 @@ final class CharacterViewModel: CharacterViewModelType,
     let likeButtonHighlighted: Driver<Bool>
     let presentReview: Driver<Character>
 
-    // MARK: - Inputs
+    // MARK: Inputs
 
     let viewDidLoad = PublishSubject<Void>()
     let likeButtonTapped = PublishSubject<Void>()
     let reviewTapped = PublishSubject<Void>()
 
-    // MARK: - Private
+    // MARK: Private
 
     private let disposeBag = DisposeBag()
+
+    // MARK: Lifecycle
 
     // swiftlint:disable:next function_body_length
     init(character: Character,
@@ -102,16 +111,7 @@ final class CharacterViewModel: CharacterViewModelType,
             quoteRepository.allQuotes(for: character)
         }
         .map { $0.map { RealmQuote.init(quote: $0, character: character) } }
-        .subscribe(onNext: { quotes in
-            do {
-                let realm = try? Realm()
-                try realm?.write {
-                    realm?.add(quotes, update: .all)
-                }
-            } catch {
-                debugPrint("Could not store quotes for character \"\(character.name)\": \(error.localizedDescription)")
-            }
-        })
+        .bind(to: Realm.rx.add(update: .all))
         .disposed(by: disposeBag)
 
         // Retrieve the stored quotes

@@ -1,23 +1,27 @@
 import Cartography
 import UIKit
 
+// MARK: - Delegate
+
 protocol CharacterViewControllerDelegate: AnyObject {
     func didTapReview(for character: Character)
 }
+
+// MARK: - View Controller
 
 final class CharacterViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
-    // MARK: - Delegate
+    // MARK: Delegate
 
     weak var delegate: CharacterViewControllerDelegate?
 
-    // MARK: - View Model
+    // MARK: View Model
 
     var viewModel: CharacterViewModelType!
 
-    // MARK: - Views
+    // MARK: Views
 
     let scrollView = UIScrollView(frame: .zero)
 
@@ -78,7 +82,7 @@ final class CharacterViewController: UIViewController {
                                              target: nil,
                                              action: nil)
 
-    // MARK: - UIViewController Lifecycle
+    // MARK: Lifecycle
 
     // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
@@ -141,12 +145,13 @@ final class CharacterViewController: UIViewController {
         // Rx bindings
         bind(viewModel.outputs)
         bind(viewModel.inputs)
+        // Trigger "viewDidLoad" view model input
         viewModel.inputs.viewDidLoad.onNext(())
     }
 
 }
 
-// MARK: - CharacterViewController + Rx Bindings
+// MARK: - CharacterViewController + Rx
 
 extension CharacterViewController {
 

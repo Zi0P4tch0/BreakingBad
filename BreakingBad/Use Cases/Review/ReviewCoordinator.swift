@@ -1,8 +1,12 @@
 import SwiftUI
 
+// MARK: - Protocol
+
 protocol ReviewCoordinatorType {
     func start(on navigationController: UINavigationController, for character: Character)
 }
+
+// MARK: - Implementation
 
 final class ReviewCoordinator {
 
@@ -13,6 +17,8 @@ final class ReviewCoordinator {
     }
 
 }
+
+// MARK: - ReviewCoordinator + ReviewCoordinatorType
 
 extension ReviewCoordinator: ReviewCoordinatorType {
 

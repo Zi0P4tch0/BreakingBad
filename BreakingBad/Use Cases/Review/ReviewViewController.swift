@@ -1,7 +1,11 @@
 import Eureka
 import UIKit
 
+// MARK: - View Controller
+
 final class ReviewViewController: FormViewController {
+
+    // MARK: Form Tags
 
     enum Tag: String {
         case name
@@ -13,11 +17,11 @@ final class ReviewViewController: FormViewController {
 
     private let disposeBag = DisposeBag()
 
-    // MARK: - View Model
+    // MARK: View Model
 
     var viewModel: ReviewViewModelType!
 
-    // MARK: - UIViewController Lifecycle
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
 
@@ -79,7 +83,7 @@ final class ReviewViewController: FormViewController {
 
 }
 
-// MARK: - Rx Bindings
+// MARK: - ReviewViewController + Rx
 
 extension ReviewViewController {
 

@@ -6,7 +6,7 @@ protocol CoordinatorFactoryType {
     func makeApp() -> AppCoordinatorType
 }
 
-// MARK: - CoordinatorFactory
+// MARK: - Implementation
 
 final class CoordinatorFactory {
 

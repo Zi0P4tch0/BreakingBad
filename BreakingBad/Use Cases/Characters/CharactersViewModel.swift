@@ -1,19 +1,27 @@
 import Foundation
 import RxRealm
 
+// MARK: - Outputs
+
 protocol CharactersViewModelOutputs {
     var title: Driver<String> { get }
     var characters: Driver<[Character]> { get }
 }
 
+// MARK: - Inputs
+
 protocol CharactersViewModelInputs {
     var viewDidLoad: PublishSubject<Void> { get }
 }
+
+// MARK: - Protocol
 
 protocol CharactersViewModelType {
     var outputs: CharactersViewModelOutputs { get }
     var inputs: CharactersViewModelInputs { get }
 }
+
+// MARK: - Implementation
 
 final class CharactersViewModel: CharactersViewModelType,
                                  CharactersViewModelOutputs,
@@ -22,32 +30,29 @@ final class CharactersViewModel: CharactersViewModelType,
     var outputs: CharactersViewModelOutputs { self }
     var inputs: CharactersViewModelInputs { self }
 
-    // MARK: - Outputs
+    // MARK: Outputs
 
     let title: Driver<String> = .just(R.string.localizable.charactersTitle())
     let characters: Driver<[Character]>
 
-    // MARK: - Inputs
+    // MARK: Inputs
 
     let viewDidLoad = PublishSubject<Void>()
 
-    // MARK: - Private
+    // MARK: Private
 
     private let disposeBag = DisposeBag()
 
+    // MARK: Lifecycle
+
     init(charactersRepository: CharacterRepositoryType) {
 
-        // Refresh the list of characters when the view loads
+        // Refresh the characters' database when the view loads
         viewDidLoad.flatMap {
             charactersRepository.allCharacters()
         }
         .map { $0.map { RealmCharacter.init(character: $0) } }
-        .subscribe(onNext: { characters in
-            guard let realm = try? Realm() else { return }
-            try? realm.write {
-                realm.add(characters, update: .all)
-            }
-        })
+        .bind(to: Realm.rx.add(update: .all))
         .disposed(by: disposeBag)
 
         // Display the characters from the database

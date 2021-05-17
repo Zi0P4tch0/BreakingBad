@@ -1,9 +1,12 @@
-import SwiftUI
 import UIKit
+
+// MARK: - Protocol
 
 protocol CharacterCoordinatorType {
     func start(on navigationController: UINavigationController, with character: Character)
 }
+
+// MARK: - Implementation
 
 final class CharacterCoordinator {
 
