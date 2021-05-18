@@ -88,6 +88,23 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
 
+  #if os(iOS) || os(tvOS)
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  struct storyboard {
+    /// Storyboard `LaunchScreen`.
+    static let launchScreen = _R.storyboard.launchScreen()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
+    static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+  #endif
+
   /// This `R.color` struct is generated, and contains static references to 1 colors.
   struct color {
     /// Color `AccentColor`.
@@ -584,7 +601,7 @@ struct R: Rswift.Validatable {
 
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
 
     fileprivate init() {}
@@ -595,6 +612,40 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    #if os(iOS) || os(tvOS)
+    try storyboard.validate()
+    #endif
+  }
+
+  #if os(iOS) || os(tvOS)
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      #if os(iOS) || os(tvOS)
+      try launchScreen.validate()
+      #endif
+    }
+
+    #if os(iOS) || os(tvOS)
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UIViewController
+
+      let bundle = R.hostingBundle
+      let name = "LaunchScreen"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+  #endif
+
   fileprivate init() {}
 }

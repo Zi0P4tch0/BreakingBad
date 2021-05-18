@@ -19,21 +19,23 @@ extension ImageService: ImageServiceType {
 
     func fetchImage(url: URL) -> Single<UIImage?> {
 
-        let queue = DispatchQueue.global(qos: .userInitiated)
-
-        return Single.create { observer in
+        Single.create { observer in
 
             let task =
                 KingfisherManager.shared
                     .retrieveImage(with: url,
-                                   options: [.callbackQueue(.dispatch(queue))],
+                                   options: [.callbackQueue(.mainAsync)],
                                    progressBlock: nil,
                                    downloadTaskUpdated: nil) { result in
                 switch result {
                 case .success(let imageResult):
-                    observer(.success(imageResult.image))
+                    DispatchQueue.main.async {
+                        observer(.success(imageResult.image))
+                    }
                 case .failure(let error):
-                    observer(.failure(error))
+                    DispatchQueue.main.async {
+                        observer(.failure(error))
+                    }
                 }
             }
 

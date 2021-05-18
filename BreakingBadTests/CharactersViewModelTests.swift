@@ -108,4 +108,59 @@ class CharactersViewModelTests: XCTestCase {
 
     }
 
+    func testOutputsEmptyLabelText() {
+
+        let emptyTextObserver = scheduler.createObserver(String.self)
+
+        sut.outputs.emptyText
+            .drive(emptyTextObserver)
+            .disposed(by: disposeBag)
+
+        scheduler.start()
+
+        XCTAssertEqual(emptyTextObserver.events, [
+            .next(0, Strings.charactersEmpty()),
+            .completed(0)
+        ])
+
+    }
+
+    func testOutputsCorrectTableViewAlphaWithNoCharacters() {
+
+        let alphaObserver = scheduler.createObserver(CGFloat.self)
+
+        sut.outputs.tableViewAlpha
+            .drive(alphaObserver)
+            .disposed(by: disposeBag)
+
+        scheduler.start()
+
+        XCTAssertEqual(alphaObserver.events, [
+            .next(0, 0)
+        ])
+
+    }
+
+    func testOutputsCorrectTableViewAlphaWithCharacters() throws {
+
+        try Realm().write {
+            try Realm().add([Character.fake(),
+                             .fake(id: 1),
+                             .fake(id: 2)].map { RealmCharacter.init(character: $0) })
+        }
+
+        let alphaObserver = scheduler.createObserver(CGFloat.self)
+
+        sut.outputs.tableViewAlpha
+            .drive(alphaObserver)
+            .disposed(by: disposeBag)
+
+        scheduler.start()
+
+        XCTAssertEqual(alphaObserver.events, [
+            .next(0, 1)
+        ])
+
+    }
+
 }
