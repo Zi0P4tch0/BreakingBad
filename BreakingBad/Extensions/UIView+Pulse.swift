@@ -1,3 +1,5 @@
+import RxCocoa
+import RxSwift
 import UIKit
 
 extension UIView {
@@ -34,7 +36,7 @@ extension Reactive where Base: UIButton {
 
     var pulseTap: ControlEvent<Void> {
         let observable = controlEvent(.touchUpInside)
-            .do(onNext: { [weak base] _ in
+        .do(onNext: { [weak base] _ in
             base?.pulse()
         }).map { _ in () }
         return ControlEvent(events: observable)

@@ -1,4 +1,5 @@
 import Cartography
+import RxSwift
 import UIKit
 
 // MARK: - Delegate
@@ -72,12 +73,12 @@ final class CharacterViewController: UIViewController {
     }(UILabel(frame: .zero))
 
     lazy var likeButton: UIButton = {
-        $0.setImage(Images.like.highlighted(), for: .highlighted)
-        $0.setImage(Images.like.normal(), for: .normal)
+        $0.setImage("like.highlighted".image(), for: .highlighted)
+        $0.setImage("like.normal".image(), for: .normal)
         return $0
     }(UIButton(frame: .zero))
 
-    let rightBarButtonItem = UIBarButtonItem(title: Strings.review(),
+    let rightBarButtonItem = UIBarButtonItem(title: "review".localized(),
                                              style: .plain,
                                              target: nil,
                                              action: nil)
@@ -151,7 +152,7 @@ final class CharacterViewController: UIViewController {
 
 }
 
-// MARK: - CharacterViewController + Rx
+// MARK: - Bindings
 
 extension CharacterViewController {
 

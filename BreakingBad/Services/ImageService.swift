@@ -1,5 +1,7 @@
 import Foundation
 import Kingfisher
+import RxSwift
+import UIKit
 
 // MARK: - Protocol
 
@@ -7,35 +9,28 @@ protocol ImageServiceType {
     func fetchImage(url: URL) -> Single<UIImage?>
 }
 
-// MARK: - Implementation
+// MARK: - Concrete Class
 
-final class ImageService {
+final class ImageService { }
 
-}
-
-// MARK: - ImageService + ImageServiceType
+// MARK: - ImageServiceType
 
 extension ImageService: ImageServiceType {
 
     func fetchImage(url: URL) -> Single<UIImage?> {
 
-        Single.create { observer in
+        Single.create { single in
 
             let task =
                 KingfisherManager.shared
                     .retrieveImage(with: url,
-                                   options: [.callbackQueue(.mainAsync)],
-                                   progressBlock: nil,
-                                   downloadTaskUpdated: nil) { result in
+                                   options: [.callbackQueue(.mainAsync)]) { result in
                 switch result {
                 case .success(let imageResult):
-                    DispatchQueue.main.async {
-                        observer(.success(imageResult.image))
-                    }
+                    return single(.success(imageResult.image))
+
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        observer(.failure(error))
-                    }
+                    return single(.failure(error))
                 }
             }
 

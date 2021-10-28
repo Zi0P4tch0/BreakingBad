@@ -1,5 +1,10 @@
 import Foundation
+import RealmSwift
+import Resolver
+import RxCocoa
 import RxRealm
+import RxSwift
+import UIKit
 
 // MARK: - Outputs
 
@@ -34,9 +39,9 @@ final class CharactersViewModel: CharactersViewModelType,
 
     // MARK: Outputs
 
-    let title: Driver<String> = .just(Strings.charactersTitle())
+    let title: Driver<String> = .just("characters.title".localized())
     let characters: Driver<[Character]>
-    let emptyText: Driver<String> = .just(Strings.charactersEmpty())
+    let emptyText: Driver<String> = .just("characters.empty".localized())
     let tableViewAlpha: Driver<CGFloat>
 
     // MARK: Inputs
@@ -49,7 +54,10 @@ final class CharactersViewModel: CharactersViewModelType,
 
     // MARK: Lifecycle
 
-    init(charactersRepository: CharacterRepositoryType) {
+    init() {
+
+        @Injected
+        var charactersRepository: CharacterRepositoryType
 
         // Refresh the characters' database when the view loads
         viewDidLoad.flatMap {
@@ -66,11 +74,14 @@ final class CharactersViewModel: CharactersViewModelType,
             fatalError("Could not retrieve stored characters")
         }
 
-        characters = Observable.collection(from: storedCharacters)
+        let sharedCharacters =
+        Observable.collection(from: storedCharacters)
             .map { $0.map { $0.toValue() } }
             .asDriver(onErrorJustReturn: [])
 
-        tableViewAlpha = characters.map { $0.isEmpty ? 0 : 1 }
+        characters = sharedCharacters
+
+        tableViewAlpha = sharedCharacters.map { $0.isEmpty ? 0 : 1 }
 
     }
 

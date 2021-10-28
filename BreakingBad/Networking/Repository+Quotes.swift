@@ -1,8 +1,11 @@
+import Foundation
+import RxSwift
+
 protocol QuoteRepositoryType {
     func allQuotes(for character: Character) -> Single<[Quote]>
 }
 
-// MARK: - Repository + QuoteRepositoryType
+// MARK: - QuoteRepositoryType
 
 extension Repository {
 

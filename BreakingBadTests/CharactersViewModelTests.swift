@@ -1,11 +1,18 @@
 @testable import BreakingBad
 import XCTest
+import Resolver
 import RxTest
+import RxSwift
+import RealmSwift
 
 class CharactersViewModelTests: XCTestCase {
 
-    var scheduler: TestScheduler!
-    var charactersRepository: FakeCharactersRepository!
+    @LazyInjected
+    var scheduler: TestScheduler
+
+    @LazyInjected
+    var charactersRepository: FakeCharactersRepository
+
     var sut: CharactersViewModelType!
     var disposeBag: DisposeBag!
 
@@ -26,10 +33,25 @@ class CharactersViewModelTests: XCTestCase {
             try Realm().deleteAll()
         }
 
-        scheduler = TestScheduler(initialClock: 0)
-        charactersRepository = FakeCharactersRepository(scheduler: scheduler)
-        sut = CharactersViewModel(charactersRepository: charactersRepository)
+        Resolver.main.register { TestScheduler(initialClock: 0) }
+            .scope(.cached)
+
+        Resolver.main.register { FakeImageService() }
+            .implements(ImageServiceType.self)
+            .scope(.cached)
+
+        Resolver.main.register { FakeCharactersRepository() }
+            .implements(CharacterRepositoryType.self)
+            .scope(.cached)
+
+        sut = CharactersViewModel()
         disposeBag = DisposeBag()
+    }
+
+    override func tearDownWithError() throws {
+
+        ResolverScope.cached.reset()
+
     }
 
     func testOutputsTitle() {
@@ -43,7 +65,7 @@ class CharactersViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(titleObserver.events, [
-            .next(0, Strings.charactersTitle()),
+            .next(0, "characters.title".localized()),
             .completed(0)
         ])
 
@@ -119,7 +141,7 @@ class CharactersViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(emptyTextObserver.events, [
-            .next(0, Strings.charactersEmpty()),
+            .next(0, "characters.empty".localized()),
             .completed(0)
         ])
 

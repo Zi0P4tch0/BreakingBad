@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 struct Quote {
     let id: Int
@@ -7,7 +6,7 @@ struct Quote {
     let author: String
 }
 
-// MARK: - Quote + Decodable
+// MARK: - Decodable
 
 extension Quote: Decodable {
 
@@ -26,6 +25,6 @@ extension Quote: Decodable {
 
 }
 
-// MARK: - Quote + Equatable
+// MARK: - Equatable
 
 extension Quote: Equatable { }

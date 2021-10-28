@@ -1,10 +1,13 @@
 import Eureka
+import Resolver
+import RxCocoa
+import RxSwift
 
 // MARK: - Outputs
 
 protocol ReviewViewModelOutputs {
     var title: Driver<String> { get }
-    var alert: Driver<AlertViewModel> { get }
+    var alert: Driver<AlertViewModel?> { get }
 }
 
 // MARK: - Inputs
@@ -33,7 +36,7 @@ final class ReviewViewModel: ReviewViewModelType,
     // MARK: Inputs
 
     let title: Driver<String>
-    let alert: Driver<AlertViewModel>
+    let alert: Driver<AlertViewModel?>
 
     // MARK: Outputs
 
@@ -42,26 +45,31 @@ final class ReviewViewModel: ReviewViewModelType,
 
     // MARK: Lifecycle
 
-    init(character: Character, reviewRepository: ReviewRepositoryType) {
+    init(character: Character) {
 
-        title = .just(Strings.reviewTitle())
+        @Injected
+        var reviewRepository: ReviewRepositoryType
+
+        title = .just("review.title".localized())
 
         let submit = submit.flatMap {
-            reviewRepository.review(character: character, with: $0).asObservable().materialize()
+            reviewRepository.review(character: character, with: $0)
+                .asObservable()
+                .materialize()
         }.share()
 
         // Show an alert if there's a validation error or a network one.
         alert = Observable.merge(
             formErrors.filter { !$0.isEmpty }.map { _ in
-                AlertViewModel(title: Strings.genericError(),
-                               message: Strings.reviewErrorMissingFields())
+                AlertViewModel(title: "generic.error".localized(),
+                               message: "review.error.missingFields".localized())
             },
             submit.compactMap { $0.error }.map {
-                AlertViewModel(title: Strings.genericError(),
+                AlertViewModel(title: "generic.error".localized(),
                                message: $0.localizedDescription)
             }
         )
-        .asDriver(onErrorJustReturn: .empty)
+        .asDriver(onErrorJustReturn: nil)
 
     }
 

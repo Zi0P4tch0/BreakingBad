@@ -1,4 +1,5 @@
 import Foundation
+import RealmSwift
 
 final class RealmQuote: Object {
 
@@ -12,7 +13,7 @@ final class RealmQuote: Object {
 
 }
 
-// MARK: - RealmQuote from Quote
+// MARK: - From Value Type
 
 extension RealmQuote {
 
@@ -25,14 +26,14 @@ extension RealmQuote {
 
 }
 
-// MARK: - RealmQuote to Quote
+// MARK: - To Value Type
 
 extension RealmQuote {
 
     func toValue() -> Quote {
         Quote(id: id,
               text: text,
-              author: author?.name ?? Strings.genericUnknown())
+              author: author?.name ?? "generic.unknown".localized())
     }
 
 }

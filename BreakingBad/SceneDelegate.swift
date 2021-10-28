@@ -1,11 +1,14 @@
+import Resolver
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var coordinatorFactory: CoordinatorFactoryType!
-    var appCoordinator: AppCoordinatorType!
+    @LazyInjected
+    private var appCoordinator: AppCoordinatorType
+
+    // MARK: UIWindowSceneDelegate
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -13,17 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = scene as? UIWindowScene else { return }
 
+        window = UIWindow(windowScene: windowScene)
+        // swiftlint:disable:next force_unwrapping
+        window!.backgroundColor = .white
+
         #if DEBUG
         // Don't run the whole app if unit tests are running
-        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
-            return
-        }
+        guard NSClassFromString("XCTest") == nil else { return }
         #endif
-
-        window = UIWindow(windowScene: windowScene)
-
-        coordinatorFactory = CoordinatorFactory()
-        appCoordinator = coordinatorFactory.makeApp()
 
         // swiftlint:disable:next force_unwrapping
         appCoordinator.start(on: window!)

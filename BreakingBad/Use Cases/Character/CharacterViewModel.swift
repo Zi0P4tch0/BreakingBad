@@ -1,3 +1,7 @@
+import RealmSwift
+import Resolver
+import RxCocoa
+import RxSwift
 import UIKit
 
 // MARK: - Outputs
@@ -69,48 +73,58 @@ final class CharacterViewModel: CharacterViewModelType,
     // MARK: Lifecycle
 
     // swiftlint:disable:next function_body_length
-    init(character: Character,
-         imageService: ImageServiceType,
-         quoteRepository: QuoteRepositoryType) {
+    init(character: Character) {
+
+        @Injected
+        var imageService: ImageServiceType
+
+        @Injected
+        var quoteRepository: QuoteRepositoryType
+
+        @Injected(name: .birthdayDateFormatter)
+        var birthdayDateFormatter: DateFormatter
 
         let formatter = CharacterViewModel.attributedString(boldPart:normalPart:)
 
         title = .just(character.name)
 
-        image = imageService.fetchImage(url: character.image)
-                            .asObservable()
-                            .startWith(nil)
-                            .asDriver(onErrorJustReturn: nil)
+        let imageShared =
+            imageService.fetchImage(url: character.image)
+                .asObservable()
+                .startWith(nil)
+                .asDriver(onErrorJustReturn: nil)
 
-        isImageLoading = image.map { $0 == nil }
+        image = imageShared
+
+        isImageLoading = imageShared.map { $0 == nil }
 
         let birthDate =
             character.birthday.map { birthdayDateFormatter.string(from: $0) } ??
-            Strings.characterBirthdayUnknown()
+            "character.birthday.unknown".localized()
 
         birthday = .just(
-            formatter(Strings.characterBirthday(), birthDate)
+            formatter("character.birthday".localized(), birthDate)
         )
 
         occupation = .just(
-            formatter(Strings.characterOccupation(),
+            formatter("character.occupation".localized(),
                       character.occupation.joined(separator: "\n"))
         )
 
         status = .just(
-            formatter(Strings.characterStatus(), character.status)
+            formatter("character.status".localized(), character.status)
         )
 
         nickname = .just(
-            formatter(Strings.characterNickname(), character.nickname)
+            formatter("character.nickname".localized(), character.nickname)
         )
 
         portrayedBy = .just(
-            formatter(Strings.characterPortrayedBy(), character.portrayedBy)
+            formatter("character.portrayedBy".localized(), character.portrayedBy)
         )
 
         seasons = .just(
-            formatter(Strings.characterSeasons(),
+            formatter("character.seasons".localized(),
                       character.appearance.map { "\($0)" }.joined(separator: ", "))
         )
 
@@ -131,15 +145,14 @@ final class CharacterViewModel: CharacterViewModelType,
         // Format them
         let formattedQuotes =
             Observable.collection(from: storedQuotes)
-            .map { $0.map { $0.toValue() } }
-            .map { $0.map { $0.attributedString } }
+            .map { $0.map { $0.toValue().attributedString } }
             .map {
                 // Show an alternative message in case there are no quotes.
                 $0.isEmpty ?
-                    [NSAttributedString(string: Strings.characterNoQuotes(),
+                [NSAttributedString(string: "character.noQuotes".localized(),
                                         attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .semibold),
                                                      .foregroundColor: UIColor.systemGray])] :
-                    $0
+                $0
             }
             .map {
                 // Concat the attributed strings
@@ -194,7 +207,7 @@ final class CharacterViewModel: CharacterViewModelType,
 
 }
 
-// MARK: - CharacterViewModel + Utilities
+// MARK: - Utilities
 
 extension CharacterViewModel {
 

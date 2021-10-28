@@ -2,6 +2,8 @@ import Foundation
 
 enum Router {
 
+    // MARK: HTTP Method
+
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -20,6 +22,8 @@ enum Router {
 
 extension Router {
 
+    // MARK: Route URL
+
     var url: URL {
         switch self {
         case .allCharacters:
@@ -37,6 +41,8 @@ extension Router {
         }
     }
 
+    // MARK: Route Method
+
     var method: Method {
         switch self {
         case .allCharacters, .allQuotes:
@@ -45,6 +51,8 @@ extension Router {
             return .post
         }
     }
+
+    // MARK: Route Body (If Any)
 
     var body: Data? {
         let encoder = JSONEncoder()
@@ -59,7 +67,7 @@ extension Router {
 
 }
 
-// MARK: - Router + URLRequestConvertible
+// MARK: - URLRequestConvertible
 
 extension Router: URLRequestConvertible {
 

@@ -1,12 +1,21 @@
 @testable import BreakingBad
 import XCTest
 import RxTest
+import RxSwift
+import RealmSwift
+import Resolver
 
 class CharacterViewModelTests: XCTestCase {
 
-    var scheduler: TestScheduler!
-    var imageService: FakeImageService!
-    var quoteRepository: FakeQuoteRepository!
+    @LazyInjected
+    private var scheduler: TestScheduler
+    
+    @LazyInjected
+    private var imageService: FakeImageService
+
+    @LazyInjected(name: .birthdayDateFormatter)
+    private var birthdayDateFormatter: DateFormatter
+
     var sut: CharacterViewModelType!
     var disposeBag: DisposeBag!
 
@@ -27,11 +36,24 @@ class CharacterViewModelTests: XCTestCase {
             try Realm().deleteAll()
         }
 
-        scheduler = TestScheduler(initialClock: 0)
-        imageService = FakeImageService(scheduler: scheduler)
-        quoteRepository = FakeQuoteRepository(scheduler: scheduler)
-        sut = CharacterViewModel(character: .fake(), imageService: imageService, quoteRepository: quoteRepository)
+        Resolver.main.register { TestScheduler(initialClock: 0) }
+            .scope(.cached)
+
+        Resolver.main.register { FakeImageService() }
+            .implements(ImageServiceType.self)
+            .scope(.cached)
+
+        Resolver.main.register { FakeQuoteRepository() }
+            .implements(QuoteRepositoryType.self)
+            .scope(.cached)
+
+        sut = CharacterViewModel(character: .fake())
         disposeBag = DisposeBag()
+    }
+
+    override func tearDownWithError() throws {
+
+        ResolverScope.cached.reset()
     }
 
     func testOutputsTitle() {
@@ -67,11 +89,11 @@ class CharacterViewModelTests: XCTestCase {
 
     func testOutputsImageFetchedFromTheImageService() {
 
-        let image = Images.like.normal()
+        let image = "like.normal".image()
         imageService.fetchImageResult = image
 
         // Image is fetched when the character view model is allocated
-        sut = CharacterViewModel(character: .fake(), imageService: imageService, quoteRepository: quoteRepository)
+        sut = CharacterViewModel(character: .fake())
 
         let imageObserver = scheduler.createObserver(UIImage?.self)
 
@@ -95,7 +117,7 @@ class CharacterViewModelTests: XCTestCase {
 
         let date = Date()
 
-        sut = CharacterViewModel(character: .fake(birthday: date), imageService: imageService, quoteRepository: quoteRepository)
+        sut = CharacterViewModel(character: .fake(birthday: date))
 
         sut.outputs.birthday
             .drive(dateObserver)
@@ -103,7 +125,7 @@ class CharacterViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        let expected = CharacterViewModel.attributedString(boldPart: Strings.characterBirthday(),
+        let expected = CharacterViewModel.attributedString(boldPart: "character.birthday".localized(),
                                                            normalPart: birthdayDateFormatter.string(from: date))
 
         XCTAssertEqual(dateObserver.events, [
@@ -123,8 +145,8 @@ class CharacterViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        let expected = CharacterViewModel.attributedString(boldPart: Strings.characterBirthday(),
-                                                           normalPart: Strings.characterBirthdayUnknown())
+        let expected = CharacterViewModel.attributedString(boldPart: "character.birthday".localized(),
+                                                           normalPart: "character.birthday.unknown".localized())
 
         XCTAssertEqual(dateObserver.events, [
             .next(0, expected),
@@ -143,7 +165,7 @@ class CharacterViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        let expected = CharacterViewModel.attributedString(boldPart: Strings.characterOccupation(),
+        let expected = CharacterViewModel.attributedString(boldPart: "character.occupation".localized(),
                                                            normalPart: Character.fake().occupation.joined(separator: "\n"))
 
         XCTAssertEqual(occupationObserver.events, [

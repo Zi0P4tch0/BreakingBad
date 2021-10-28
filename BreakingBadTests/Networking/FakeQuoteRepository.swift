@@ -1,14 +1,13 @@
 @testable import BreakingBad
 import XCTest
 import RxTest
+import RxSwift
+import Resolver
 
-class FakeQuoteRepository: QuoteRepositoryType {
+final class FakeQuoteRepository: QuoteRepositoryType {
 
-    let scheduler: TestScheduler
-
-    init(scheduler: TestScheduler) {
-        self.scheduler = scheduler
-    }
+    @LazyInjected
+    private var scheduler: TestScheduler
 
     var allQuotesCalled = false
     var allQuotesResult: [Quote] = []

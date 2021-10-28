@@ -3,12 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		017C51FBA696A1BDB51856BA /* Pods_BreakingBadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */; };
-		3CFDBA8871F7EBB6022B7C38 /* Pods_BreakingBad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */; };
+		56093C842729F0AD00FFE038 /* ShowTime in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C832729F0AD00FFE038 /* ShowTime */; };
+		56093C872729F0FD00FFE038 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C862729F0FD00FFE038 /* Resolver */; };
+		56093C8A2729F10F00FFE038 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C892729F10F00FFE038 /* Eureka */; };
+		56093C8D2729F18A00FFE038 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C8C2729F18A00FFE038 /* RxBlocking */; };
+		56093C8F2729F18A00FFE038 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C8E2729F18A00FFE038 /* RxCocoa */; };
+		56093C912729F18A00FFE038 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C902729F18A00FFE038 /* RxSwift */; };
+		56093C932729F18A00FFE038 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C922729F18A00FFE038 /* RxTest */; };
+		56093C952729F29200FFE038 /* String+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56093C942729F29200FFE038 /* String+Assets.swift */; };
+		56093C98272A90D400FFE038 /* Cartography in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C97272A90D400FFE038 /* Cartography */; };
+		56093C9B272A913900FFE038 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C9A272A913900FFE038 /* RxRealm */; };
+		56093C9E272A921E00FFE038 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 56093C9D272A921E00FFE038 /* Kingfisher */; };
+		56093CA1272A946D00FFE038 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 56093CA0272A946D00FFE038 /* Differentiator */; };
+		56093CA3272A946D00FFE038 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 56093CA2272A946D00FFE038 /* RxDataSources */; };
 		952DF6852652A5A2005CE20E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6842652A5A2005CE20E /* Review.swift */; };
 		952DF68E2652A802005CE20E /* CharactersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF68D2652A802005CE20E /* CharactersViewModelTests.swift */; };
 		952DF6972652B628005CE20E /* FakeCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6962652B628005CE20E /* FakeCharacterRepository.swift */; };
@@ -18,10 +29,8 @@
 		952DF6A12652B8F2005CE20E /* FakeQuoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6A02652B8F2005CE20E /* FakeQuoteRepository.swift */; };
 		952DF6AB26530B81005CE20E /* UIView+Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6AA26530B81005CE20E /* UIView+Pulse.swift */; };
 		952DF6AD265311FA005CE20E /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DF6AC265311FA005CE20E /* UIView+Loading.swift */; };
-		953168F5264EEEAB003BC163 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168F4264EEEAB003BC163 /* R.generated.swift */; };
-		953168FB264EF006003BC163 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168FA264EF006003BC163 /* CoordinatorFactory.swift */; };
+		953168FB264EF006003BC163 /* Resolver+Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953168FA264EF006003BC163 /* Resolver+Registration.swift */; };
 		95316902264EF1B4003BC163 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95316901264EF1B4003BC163 /* Router.swift */; };
-		9531690B264EF396003BC163 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531690A264EF396003BC163 /* DateFormatters.swift */; };
 		95316917264EF774003BC163 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95316916264EF774003BC163 /* URLRequestConvertible.swift */; };
 		95A1178F264EE6DF00501EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1178E264EE6DF00501EC5 /* AppDelegate.swift */; };
 		95A11791264EE6DF00501EC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A11790264EE6DF00501EC5 /* SceneDelegate.swift */; };
@@ -41,14 +50,12 @@
 		95D79772264F3B8A0008E79A /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D79771264F3B8A0008E79A /* CharactersViewController.swift */; };
 		95D79774264F3BA60008E79A /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D79773264F3BA60008E79A /* CharactersViewModel.swift */; };
 		95E137B32653345F00DD9493 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95E137B52653345F00DD9493 /* Localizable.strings */; };
-		95E137BA2653394000DD9493 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E137B92653394000DD9493 /* main.swift */; };
 		95E627A226509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A126509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift */; };
 		95E627A5265118AD007DCB8C /* RealmCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A4265118AD007DCB8C /* RealmCharacter.swift */; };
 		95E627A726511EB3007DCB8C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A626511EB3007DCB8C /* Character.swift */; };
 		95E627A926511F2F007DCB8C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627A826511F2F007DCB8C /* Quote.swift */; };
 		95E627AB26511FC0007DCB8C /* Repository+Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627AA26511FC0007DCB8C /* Repository+Quotes.swift */; };
 		95E627AD2651214B007DCB8C /* RealmQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627AC2651214B007DCB8C /* RealmQuote.swift */; };
-		95E627AF26514494007DCB8C /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627AE26514494007DCB8C /* Typealiases.swift */; };
 		95E627B42651727A007DCB8C /* ReviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E627B32651727A007DCB8C /* ReviewCoordinator.swift */; };
 		95FF6CBD264FBC630026D580 /* CharactersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FF6CBC264FBC630026D580 /* CharactersDataSource.swift */; };
 		95FF6CBF264FBC760026D580 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FF6CBE264FBC760026D580 /* UITableView+Utils.swift */; };
@@ -66,10 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadTests.release.xcconfig"; path = "Target Support Files/Pods-BreakingBadTests/Pods-BreakingBadTests.release.xcconfig"; sourceTree = "<group>"; };
-		7904AE9FEA6674E5C2ED3517 /* Pods-BreakingBad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBad.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBad/Pods-BreakingBad.debug.xcconfig"; sourceTree = "<group>"; };
-		91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BreakingBad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56093C942729F29200FFE038 /* String+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Assets.swift"; sourceTree = "<group>"; };
 		9525C6552653B31D005BB33F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		952DF6842652A5A2005CE20E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		952DF68B2652A802005CE20E /* BreakingBadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,10 +86,8 @@
 		952DF6A02652B8F2005CE20E /* FakeQuoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQuoteRepository.swift; sourceTree = "<group>"; };
 		952DF6AA26530B81005CE20E /* UIView+Pulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pulse.swift"; sourceTree = "<group>"; };
 		952DF6AC265311FA005CE20E /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
-		953168F4264EEEAB003BC163 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		953168FA264EF006003BC163 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		953168FA264EF006003BC163 /* Resolver+Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Registration.swift"; sourceTree = "<group>"; };
 		95316901264EF1B4003BC163 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		9531690A264EF396003BC163 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		95316916264EF774003BC163 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
 		95A1178B264EE6DF00501EC5 /* BreakingBad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A1178E264EE6DF00501EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,20 +109,16 @@
 		95D79773264F3BA60008E79A /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		95E137B42653345F00DD9493 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		95E137B82653349400DD9493 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		95E137B92653394000DD9493 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		95E627A126509F4B007DCB8C /* KeyedDecodingContainer+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+Utils.swift"; sourceTree = "<group>"; };
 		95E627A4265118AD007DCB8C /* RealmCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCharacter.swift; sourceTree = "<group>"; };
 		95E627A626511EB3007DCB8C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		95E627A826511F2F007DCB8C /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		95E627AA26511FC0007DCB8C /* Repository+Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+Quotes.swift"; sourceTree = "<group>"; };
 		95E627AC2651214B007DCB8C /* RealmQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuote.swift; sourceTree = "<group>"; };
-		95E627AE26514494007DCB8C /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		95E627B32651727A007DCB8C /* ReviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCoordinator.swift; sourceTree = "<group>"; };
 		95FF6CBC264FBC630026D580 /* CharactersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataSource.swift; sourceTree = "<group>"; };
 		95FF6CBE264FBC760026D580 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		95FF6CC1264FBF1C0026D580 /* CharacterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCoordinator.swift; sourceTree = "<group>"; };
-		A203C6C68F78CEF4D06FC22C /* Pods-BreakingBad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBad.release.xcconfig"; path = "Target Support Files/Pods-BreakingBad/Pods-BreakingBad.release.xcconfig"; sourceTree = "<group>"; };
-		C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakingBadTests.debug.xcconfig"; path = "Target Support Files/Pods-BreakingBadTests/Pods-BreakingBadTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				017C51FBA696A1BDB51856BA /* Pods_BreakingBadTests.framework in Frameworks */,
+				56093C932729F18A00FFE038 /* RxTest in Frameworks */,
+				56093C8D2729F18A00FFE038 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +135,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFDBA8871F7EBB6022B7C38 /* Pods_BreakingBad.framework in Frameworks */,
+				56093C872729F0FD00FFE038 /* Resolver in Frameworks */,
+				56093C98272A90D400FFE038 /* Cartography in Frameworks */,
+				56093C842729F0AD00FFE038 /* ShowTime in Frameworks */,
+				56093CA3272A946D00FFE038 /* RxDataSources in Frameworks */,
+				56093C912729F18A00FFE038 /* RxSwift in Frameworks */,
+				56093C9E272A921E00FFE038 /* Kingfisher in Frameworks */,
+				56093C8F2729F18A00FFE038 /* RxCocoa in Frameworks */,
+				56093C8A2729F10F00FFE038 /* Eureka in Frameworks */,
+				56093CA1272A946D00FFE038 /* Differentiator in Frameworks */,
+				56093C9B272A913900FFE038 /* RxRealm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +211,6 @@
 		95316900264EF1A6003BC163 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				9531690A264EF396003BC163 /* DateFormatters.swift */,
 				95D7976B264F31C50008E79A /* Repository.swift */,
 				95D7976D264F38310008E79A /* Repository+Characters.swift */,
 				95E627AA26511FC0007DCB8C /* Repository+Quotes.swift */,
@@ -223,6 +230,7 @@
 				95A408C32651A23A00872AA3 /* UIViewController+RxAlert.swift */,
 				952DF6AA26530B81005CE20E /* UIView+Pulse.swift */,
 				952DF6AC265311FA005CE20E /* UIView+Loading.swift */,
+				56093C942729F29200FFE038 /* String+Assets.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,8 +249,6 @@
 				95A1178D264EE6DF00501EC5 /* BreakingBad */,
 				952DF68C2652A802005CE20E /* BreakingBadTests */,
 				95A1178C264EE6DF00501EC5 /* Products */,
-				D97DA23509EAC348E1B704DA /* Pods */,
-				DBDB3939876857D30B288202 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,11 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				95A1179C264EE6DF00501EC5 /* Info.plist */,
-				95E137B92653394000DD9493 /* main.swift */,
-				95E627AE26514494007DCB8C /* Typealiases.swift */,
 				95A1178E264EE6DF00501EC5 /* AppDelegate.swift */,
 				95A11790264EE6DF00501EC5 /* SceneDelegate.swift */,
-				953168FA264EF006003BC163 /* CoordinatorFactory.swift */,
+				953168FA264EF006003BC163 /* Resolver+Registration.swift */,
 				95FA17B0265079F200B9D59F /* Data Model */,
 				95316910264EF591003BC163 /* Extensions */,
 				95316900264EF1A6003BC163 /* Networking */,
@@ -288,7 +292,6 @@
 		95A117A3264EE8F300501EC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				953168F4264EEEAB003BC163 /* R.generated.swift */,
 				95A11797264EE6DF00501EC5 /* Assets.xcassets */,
 				95A11799264EE6DF00501EC5 /* LaunchScreen.storyboard */,
 				95E137B52653345F00DD9493 /* Localizable.strings */,
@@ -351,26 +354,6 @@
 			path = Character;
 			sourceTree = "<group>";
 		};
-		D97DA23509EAC348E1B704DA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7904AE9FEA6674E5C2ED3517 /* Pods-BreakingBad.debug.xcconfig */,
-				A203C6C68F78CEF4D06FC22C /* Pods-BreakingBad.release.xcconfig */,
-				C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */,
-				6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		DBDB3939876857D30B288202 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				91F828C9EFF647858F73CBD0 /* Pods_BreakingBad.framework */,
-				594FE06EB09A858C6F00E36E /* Pods_BreakingBadTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,7 +361,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 952DF6922652A802005CE20E /* Build configuration list for PBXNativeTarget "BreakingBadTests" */;
 			buildPhases = (
-				149E021CC58B274107514633 /* [CP] Check Pods Manifest.lock */,
 				952DF6872652A802005CE20E /* Sources */,
 				952DF6882652A802005CE20E /* Frameworks */,
 				952DF6892652A802005CE20E /* Resources */,
@@ -389,6 +371,10 @@
 				952DF6912652A802005CE20E /* PBXTargetDependency */,
 			);
 			name = BreakingBadTests;
+			packageProductDependencies = (
+				56093C8C2729F18A00FFE038 /* RxBlocking */,
+				56093C922729F18A00FFE038 /* RxTest */,
+			);
 			productName = BreakingBadTests;
 			productReference = 952DF68B2652A802005CE20E /* BreakingBadTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -397,8 +383,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95A1179F264EE6DF00501EC5 /* Build configuration list for PBXNativeTarget "BreakingBad" */;
 			buildPhases = (
-				78E620EF354C13EE2D91427B /* [CP] Check Pods Manifest.lock */,
-				953168F0264EEE6A003BC163 /* R.swift */,
 				95A11787264EE6DE00501EC5 /* Sources */,
 				95A11788264EE6DE00501EC5 /* Frameworks */,
 				95A11789264EE6DE00501EC5 /* Resources */,
@@ -409,6 +393,18 @@
 			dependencies = (
 			);
 			name = BreakingBad;
+			packageProductDependencies = (
+				56093C832729F0AD00FFE038 /* ShowTime */,
+				56093C862729F0FD00FFE038 /* Resolver */,
+				56093C892729F10F00FFE038 /* Eureka */,
+				56093C8E2729F18A00FFE038 /* RxCocoa */,
+				56093C902729F18A00FFE038 /* RxSwift */,
+				56093C97272A90D400FFE038 /* Cartography */,
+				56093C9A272A913900FFE038 /* RxRealm */,
+				56093C9D272A921E00FFE038 /* Kingfisher */,
+				56093CA0272A946D00FFE038 /* Differentiator */,
+				56093CA2272A946D00FFE038 /* RxDataSources */,
+			);
 			productName = BreakingBad;
 			productReference = 95A1178B264EE6DF00501EC5 /* BreakingBad.app */;
 			productType = "com.apple.product-type.application";
@@ -442,6 +438,16 @@
 				Base,
 			);
 			mainGroup = 95A11782264EE6DE00501EC5;
+			packageReferences = (
+				56093C822729F0AD00FFE038 /* XCRemoteSwiftPackageReference "ShowTime" */,
+				56093C852729F0FD00FFE038 /* XCRemoteSwiftPackageReference "Resolver" */,
+				56093C882729F10F00FFE038 /* XCRemoteSwiftPackageReference "Eureka" */,
+				56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				56093C96272A90D400FFE038 /* XCRemoteSwiftPackageReference "Cartography" */,
+				56093C99272A913900FFE038 /* XCRemoteSwiftPackageReference "RxRealm" */,
+				56093C9C272A921E00FFE038 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				56093C9F272A946D00FFE038 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+			);
 			productRefGroup = 95A1178C264EE6DF00501EC5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -473,70 +479,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		149E021CC58B274107514633 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BreakingBadTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78E620EF354C13EE2D91427B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BreakingBad-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		953168F0264EEE6A003BC163 /* R.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			name = R.swift;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/BreakingBad/Resources/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/BreakingBad/Resources/R.generated.swift\"\n";
-		};
 		953168F7264EEEC2003BC163 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,7 +495,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -576,7 +518,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D79772264F3B8A0008E79A /* CharactersViewController.swift in Sources */,
-				95E137BA2653394000DD9493 /* main.swift in Sources */,
 				95A117A6264EE94200501EC5 /* AppCoordinator.swift in Sources */,
 				952DF6AB26530B81005CE20E /* UIView+Pulse.swift in Sources */,
 				95A162972651BD0700C2020A /* Repository+Review.swift in Sources */,
@@ -588,24 +529,22 @@
 				95BEF1B0265012DB00685803 /* CharacterViewModel.swift in Sources */,
 				95E627A926511F2F007DCB8C /* Quote.swift in Sources */,
 				95A11791264EE6DF00501EC5 /* SceneDelegate.swift in Sources */,
-				95E627AF26514494007DCB8C /* Typealiases.swift in Sources */,
 				95D7976E264F38310008E79A /* Repository+Characters.swift in Sources */,
 				95FF6CBD264FBC630026D580 /* CharactersDataSource.swift in Sources */,
 				95BEF1AE265012AF00685803 /* CharacterViewController.swift in Sources */,
 				95D7976C264F31C50008E79A /* Repository.swift in Sources */,
 				95E627AD2651214B007DCB8C /* RealmQuote.swift in Sources */,
-				9531690B264EF396003BC163 /* DateFormatters.swift in Sources */,
+				56093C952729F29200FFE038 /* String+Assets.swift in Sources */,
 				95FF6CC2264FBF1C0026D580 /* CharacterCoordinator.swift in Sources */,
 				95E627A726511EB3007DCB8C /* Character.swift in Sources */,
 				95D79774264F3BA60008E79A /* CharactersViewModel.swift in Sources */,
 				95BEF1AC2650119900685803 /* ImageService.swift in Sources */,
 				95E627A5265118AD007DCB8C /* RealmCharacter.swift in Sources */,
 				95E627B42651727A007DCB8C /* ReviewCoordinator.swift in Sources */,
-				953168F5264EEEAB003BC163 /* R.generated.swift in Sources */,
 				952DF6852652A5A2005CE20E /* Review.swift in Sources */,
 				95316917264EF774003BC163 /* URLRequestConvertible.swift in Sources */,
 				95316902264EF1B4003BC163 /* Router.swift in Sources */,
-				953168FB264EF006003BC163 /* CoordinatorFactory.swift in Sources */,
+				953168FB264EF006003BC163 /* Resolver+Registration.swift in Sources */,
 				95E627AB26511FC0007DCB8C /* Repository+Quotes.swift in Sources */,
 				95D79770264F3A430008E79A /* CharactersCoordinator.swift in Sources */,
 				95A408C2265195E600872AA3 /* ReviewViewController.swift in Sources */,
@@ -646,12 +585,12 @@
 /* Begin XCBuildConfiguration section */
 		952DF6932652A802005CE20E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2B0C48DA3687A317F89A5F1 /* Pods-BreakingBadTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSM3BQ7EM4;
 				INFOPLIST_FILE = BreakingBadTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -667,12 +606,12 @@
 		};
 		952DF6942652A802005CE20E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A8246B7A5468E88E02CE80A /* Pods-BreakingBadTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSM3BQ7EM4;
 				INFOPLIST_FILE = BreakingBadTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -806,7 +745,6 @@
 		};
 		95A117A0264EE6DF00501EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7904AE9FEA6674E5C2ED3517 /* Pods-BreakingBad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -814,7 +752,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSM3BQ7EM4;
 				INFOPLIST_FILE = BreakingBad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -830,7 +768,6 @@
 		};
 		95A117A1264EE6DF00501EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A203C6C68F78CEF4D06FC22C /* Pods-BreakingBad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -838,7 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DSM3BQ7EM4;
 				INFOPLIST_FILE = BreakingBad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -882,6 +819,136 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		56093C822729F0AD00FFE038 /* XCRemoteSwiftPackageReference "ShowTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KaneCheshire/ShowTime";
+			requirement = {
+				kind = exactVersion;
+				version = 2.5.3;
+			};
+		};
+		56093C852729F0FD00FFE038 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.0;
+			};
+		};
+		56093C882729F10F00FFE038 /* XCRemoteSwiftPackageReference "Eureka" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/Eureka";
+			requirement = {
+				kind = exactVersion;
+				version = 5.3.4;
+			};
+		};
+		56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.0;
+			};
+		};
+		56093C96272A90D400FFE038 /* XCRemoteSwiftPackageReference "Cartography" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robb/Cartography";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		56093C99272A913900FFE038 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.3;
+			};
+		};
+		56093C9C272A921E00FFE038 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 7.1.1;
+			};
+		};
+		56093C9F272A946D00FFE038 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56093C832729F0AD00FFE038 /* ShowTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C822729F0AD00FFE038 /* XCRemoteSwiftPackageReference "ShowTime" */;
+			productName = ShowTime;
+		};
+		56093C862729F0FD00FFE038 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C852729F0FD00FFE038 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		56093C892729F10F00FFE038 /* Eureka */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C882729F10F00FFE038 /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
+		};
+		56093C8C2729F18A00FFE038 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		56093C8E2729F18A00FFE038 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		56093C902729F18A00FFE038 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		56093C922729F18A00FFE038 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C8B2729F18A00FFE038 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		56093C97272A90D400FFE038 /* Cartography */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C96272A90D400FFE038 /* XCRemoteSwiftPackageReference "Cartography" */;
+			productName = Cartography;
+		};
+		56093C9A272A913900FFE038 /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C99272A913900FFE038 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+		56093C9D272A921E00FFE038 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C9C272A921E00FFE038 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		56093CA0272A946D00FFE038 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C9F272A946D00FFE038 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		56093CA2272A946D00FFE038 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56093C9F272A946D00FFE038 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 95A11783264EE6DE00501EC5 /* Project object */;
 }

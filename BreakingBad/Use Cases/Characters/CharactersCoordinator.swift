@@ -1,3 +1,4 @@
+import Resolver
 import UIKit
 
 // MARK: - Protocol
@@ -10,26 +11,20 @@ protocol CharactersCoordinatorType {
 
 final class CharactersCoordinator {
 
-    private let charactersRepository: CharacterRepositoryType
-    private let characterCoordinator: CharacterCoordinatorType
+    @Injected
+    private var characterCoordinator: CharacterCoordinatorType
 
     private weak var navigationController: UINavigationController?
 
-    init(charactersRepository: CharacterRepositoryType,
-         characterCoordinator: CharacterCoordinatorType) {
-        self.charactersRepository = charactersRepository
-        self.characterCoordinator = characterCoordinator
-    }
-
 }
 
-// MARK: - CharactersCoordinator + CharactersCoordinatorType
+// MARK: - CharactersCoordinatorType
 
 extension CharactersCoordinator: CharactersCoordinatorType {
 
     func start(on window: UIWindow) {
         let viewController = CharactersViewController()
-        let viewModel = CharactersViewModel(charactersRepository: charactersRepository)
+        let viewModel = CharactersViewModel()
         viewController.viewModel = viewModel
         viewController.delegate = self
         let navigationController = UINavigationController(rootViewController: viewController)
@@ -39,7 +34,7 @@ extension CharactersCoordinator: CharactersCoordinatorType {
 
 }
 
-// MARK: - CharactersCoordinator + CharactersViewControllerDelegate
+// MARK: - CharactersViewControllerDelegate
 
 extension CharactersCoordinator: CharactersViewControllerDelegate {
 

@@ -1,14 +1,13 @@
 @testable import BreakingBad
 import XCTest
 import RxTest
+import RxSwift
+import Resolver
 
 class FakeImageService: ImageServiceType {
 
-    let scheduler: TestScheduler
-
-    init(scheduler: TestScheduler) {
-        self.scheduler = scheduler
-    }
+    @LazyInjected
+    private var scheduler: TestScheduler
 
     var fetchImageCalled = false
     var fetchImageResult: UIImage? = nil

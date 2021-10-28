@@ -1,3 +1,4 @@
+import Resolver
 import UIKit
 
 // MARK: - Protocol
@@ -6,19 +7,16 @@ protocol AppCoordinatorType {
     func start(on window: UIWindow)
 }
 
-// MARK: - Implementation
+// MARK: - Concrete Class
 
 final class AppCoordinator {
 
-    private let charactersCoordinator: CharactersCoordinatorType
-
-    init(charactersCoordinator: CharactersCoordinatorType) {
-        self.charactersCoordinator = charactersCoordinator
-    }
+    @Injected
+    private var charactersCoordinator: CharactersCoordinatorType
 
 }
 
-// MARK: - AppCoordinator + AppCoordinatorType
+// MARK: - AppCoordinatorType
 
 extension AppCoordinator: AppCoordinatorType {
 

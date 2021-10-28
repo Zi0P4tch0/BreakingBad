@@ -1,4 +1,5 @@
 import Eureka
+import RxSwift
 import UIKit
 
 // MARK: - View Controller
@@ -28,29 +29,29 @@ final class ReviewViewController: FormViewController {
         super.viewDidLoad()
 
         let nameRow = TextRow(Tag.name.rawValue) {
-            $0.title = Strings.reviewYourName()
+            $0.title = "review.yourName".localized()
             $0.add(rule: RuleRequired())
         }
 
         let dateRow = DateInlineRow(Tag.date.rawValue) {
-            $0.title = Strings.reviewWatchedDate()
+            $0.title = "review.watchedDate".localized()
             $0.value = Date()
             $0.add(rule: RuleRequired())
         }
 
         let reviewRow = TextAreaRow(Tag.review.rawValue) {
-            $0.placeholder = Strings.reviewPlaceholder()
+            $0.placeholder = "review.placeholder".localized()
             $0.add(rule: RuleRequired())
         }
 
         let ratingRow = PickerInlineRow<Int>(Tag.rating.rawValue) {
-            $0.title = Strings.reviewRating()
+            $0.title = "review.rating".localized()
             $0.options = Array(1...10)
             $0.add(rule: RuleRequired())
         }
 
         let buttonRow = ButtonRow(Tag.submit.rawValue) {
-            $0.title = R.string.localizable.reviewSubmit()
+            $0.title = "review.submit".localized()
         }.onCellSelection { [weak self] _, _ in
             guard let self = self else { return }
             let validationErrors = self.form.validate()

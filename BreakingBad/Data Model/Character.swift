@@ -1,4 +1,6 @@
 import Foundation
+import RealmSwift
+import Resolver
 
 struct Character {
     let id: Int
@@ -13,7 +15,7 @@ struct Character {
     let liked: Bool
 }
 
-// MARK: - Character + Decodable
+// MARK: - Decodable
 
 extension Character: Decodable {
 
@@ -34,6 +36,10 @@ extension Character: Decodable {
     }
 
     init(from decoder: Decoder) throws {
+
+        @Injected(name: .birthdayDateFormatter)
+        var birthdayDateFormatter: DateFormatter
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(.id)
         name = try container.decode(.name)
@@ -60,6 +66,6 @@ extension Character: Decodable {
 
 }
 
-// MARK: - Character + Equatable
+// MARK: - Equatable
 
 extension Character: Equatable { }

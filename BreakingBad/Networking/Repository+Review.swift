@@ -1,10 +1,11 @@
 import Foundation
+import RxSwift
 
 protocol ReviewRepositoryType {
     func review(character: Character, with payload: Review) -> Single<Nothing>
 }
 
-// MARK: - Repository + ReviewRepositoryType
+// MARK: - ReviewRepositoryType
 
 extension Repository {
 

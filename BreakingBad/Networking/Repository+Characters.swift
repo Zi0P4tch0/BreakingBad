@@ -1,10 +1,11 @@
 import Foundation
+import RxSwift
 
 protocol CharacterRepositoryType {
     func allCharacters() -> Single<[Character]>
 }
 
-// MARK: - Repository + CharacterRepositoryType
+// MARK: - CharacterRepositoryType
 
 extension Repository {
 

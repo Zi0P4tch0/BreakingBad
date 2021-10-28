@@ -1,4 +1,5 @@
 import Foundation
+import RealmSwift
 
 final class RealmCharacter: Object {
 
@@ -19,7 +20,7 @@ final class RealmCharacter: Object {
 
 }
 
-// MARK: - RealmCharacter from Character
+// MARK: - From Value Type
 
 extension RealmCharacter {
 
@@ -39,7 +40,7 @@ extension RealmCharacter {
 
 }
 
-// MARK: - RealmCharacter to Character
+// MARK: - To Value Type
 
 extension RealmCharacter {
 

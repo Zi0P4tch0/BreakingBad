@@ -1,3 +1,6 @@
+import RxCocoa
+import RxDataSources
+import RxSwift
 import UIKit
 
 final class CharactersDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {

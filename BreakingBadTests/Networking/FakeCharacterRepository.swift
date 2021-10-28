@@ -1,14 +1,13 @@
 @testable import BreakingBad
 import XCTest
+import Resolver
 import RxTest
+import RxSwift
 
 class FakeCharactersRepository: CharacterRepositoryType {
 
-    let scheduler: TestScheduler
-
-    init(scheduler: TestScheduler) {
-        self.scheduler = scheduler
-    }
+    @LazyInjected
+    var scheduler: TestScheduler
 
     var allCharactersCalled = false
     var allCharactersResult: [Character] = []

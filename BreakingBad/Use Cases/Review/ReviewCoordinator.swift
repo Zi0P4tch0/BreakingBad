@@ -8,15 +8,7 @@ protocol ReviewCoordinatorType {
 
 // MARK: - Implementation
 
-final class ReviewCoordinator {
-
-    private let reviewRepository: ReviewRepositoryType
-
-    init(reviewRepository: ReviewRepositoryType) {
-        self.reviewRepository = reviewRepository
-    }
-
-}
+final class ReviewCoordinator { }
 
 // MARK: - ReviewCoordinator + ReviewCoordinatorType
 
@@ -24,7 +16,7 @@ extension ReviewCoordinator: ReviewCoordinatorType {
 
     func start(on navigationController: UINavigationController, for character: Character) {
         let viewController = ReviewViewController()
-        let viewModel = ReviewViewModel(character: character, reviewRepository: reviewRepository)
+        let viewModel = ReviewViewModel(character: character)
         viewController.viewModel = viewModel
         let innerNavigationController = UINavigationController(rootViewController: viewController)
         navigationController.present(innerNavigationController, animated: true, completion: nil)

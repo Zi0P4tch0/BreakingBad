@@ -1,3 +1,4 @@
+import Resolver
 import UIKit
 
 // MARK: - Protocol
@@ -6,34 +7,23 @@ protocol CharacterCoordinatorType {
     func start(on navigationController: UINavigationController, with character: Character)
 }
 
-// MARK: - Implementation
+// MARK: - Concrete Class
 
 final class CharacterCoordinator {
 
-    private let imageService: ImageServiceType
-    private let quoteRepository: QuoteRepositoryType
-    private let reviewCoordinator: ReviewCoordinatorType
+    @Injected
+    private var reviewCoordinator: ReviewCoordinatorType
 
     private weak var navigationController: UINavigationController?
 
-    init(imageService: ImageServiceType,
-         quoteRepository: QuoteRepositoryType,
-         reviewCoordinator: ReviewCoordinatorType) {
-        self.imageService = imageService
-        self.quoteRepository = quoteRepository
-        self.reviewCoordinator = reviewCoordinator
-    }
-
 }
 
-// MARK: - CharacterCoordinator + CharacterCoordinatorType
+// MARK: - CharacterCoordinatorType
 
 extension CharacterCoordinator: CharacterCoordinatorType {
 
     func start(on navigationController: UINavigationController, with character: Character) {
-        let viewModel = CharacterViewModel(character: character,
-                                           imageService: imageService,
-                                           quoteRepository: quoteRepository)
+        let viewModel = CharacterViewModel(character: character)
         let viewController = CharacterViewController()
         viewController.delegate = self
         viewController.viewModel = viewModel
@@ -43,7 +33,7 @@ extension CharacterCoordinator: CharacterCoordinatorType {
 
 }
 
-// MARK: - CharacterCoordinator + CharacterViewControllerDelegate
+// MARK: - CharacterViewControllerDelegate
 
 extension CharacterCoordinator: CharacterViewControllerDelegate {
 
