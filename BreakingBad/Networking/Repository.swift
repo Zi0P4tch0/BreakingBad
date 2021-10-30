@@ -17,6 +17,7 @@ final class Repository: RepositoryType {
     enum Error: LocalizedError {
         case client(String)
         case remote(Int)
+        case deserialization(String)
         case unknown
 
         var errorDescription: String? {
@@ -25,6 +26,8 @@ final class Repository: RepositoryType {
                 return "A client error occurred: \(reason)."
             case let .remote(statusCode):
                 return "Server replied with \(statusCode) status code."
+            case let .deserialization(reason):
+                return "A deserialization error occurred: \(reason)"
             default:
                 return "An unknown error occurred"
             }
@@ -55,9 +58,13 @@ extension Repository {
                     guard 200 ... 299 ~= response.statusCode else {
                         throw Error.remote(response.statusCode)
                     }
-                    let decoder = JSONDecoder()
-                    let object: T = try decoder.decode(T.self, from: data)
-                    return object
+                    do {
+                        let decoder = JSONDecoder()
+                        let object: T = try decoder.decode(T.self, from: data)
+                        return object
+                    } catch {
+                        throw Error.deserialization(error.localizedDescription)
+                    }
                 case .completed:
                     throw Error.unknown
                 }

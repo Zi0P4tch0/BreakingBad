@@ -68,3 +68,7 @@ extension Resolver: ResolverRegistering {
     }
 
 }
+
+func resolve<Service>(_ name: Resolver.Name? = nil) -> Service {
+    Resolver.resolve(Service.self, name: name, args: nil)
+}

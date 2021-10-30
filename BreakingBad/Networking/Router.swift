@@ -31,11 +31,11 @@ extension Router {
         case let .allQuotes(character):
             let url = Router.baseURL.appendingPathComponent("/quote")
             var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-            // swiftlint:disable force_unwrapping
-            components!.queryItems = [URLQueryItem(name: "author", value: character.name)]
-            return components!.url!
-            // swiftlint:enable force_unwrapping
-
+            components?.queryItems = [URLQueryItem(name: "author", value: character.name)]
+            guard let finalURL = components?.url else {
+                fatalError("Could not generate final URL: \(String(describing: components?.url))")
+            }
+            return finalURL
         case let .review(character, _):
             return Router.baseURL.appendingPathComponent("/review/\(character.id)")
         }

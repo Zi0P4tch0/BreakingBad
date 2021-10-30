@@ -37,8 +37,7 @@ extension Character: Decodable {
 
     init(from decoder: Decoder) throws {
 
-        @Injected(name: .birthdayDateFormatter)
-        var birthdayDateFormatter: DateFormatter
+        let birthdayDateFormatter: DateFormatter = resolve(.birthdayDateFormatter)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(.id)

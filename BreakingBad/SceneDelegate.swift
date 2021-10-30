@@ -25,6 +25,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard NSClassFromString("XCTest") == nil else { return }
         #endif
 
+        // Set default navigation bar appearance
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithDefaultBackground()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+
         // swiftlint:disable:next force_unwrapping
         appCoordinator.start(on: window!)
 

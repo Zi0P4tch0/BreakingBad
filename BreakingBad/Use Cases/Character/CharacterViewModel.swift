@@ -75,14 +75,9 @@ final class CharacterViewModel: CharacterViewModelType,
     // swiftlint:disable:next function_body_length
     init(character: Character) {
 
-        @Injected
-        var imageService: ImageServiceType
-
-        @Injected
-        var quoteRepository: QuoteRepositoryType
-
-        @Injected(name: .birthdayDateFormatter)
-        var birthdayDateFormatter: DateFormatter
+        let imageService: ImageServiceType = resolve()
+        let quoteRepository: QuoteRepositoryType = resolve()
+        let birthdayDateFormatter: DateFormatter = resolve(.birthdayDateFormatter)
 
         let formatter = CharacterViewModel.attributedString(boldPart:normalPart:)
 
@@ -99,8 +94,9 @@ final class CharacterViewModel: CharacterViewModelType,
         isImageLoading = imageShared.map { $0 == nil }
 
         let birthDate =
-            character.birthday.map { birthdayDateFormatter.string(from: $0) } ??
-            "character.birthday.unknown".localized()
+            character.birthday.map {
+                birthdayDateFormatter.string(from: $0)
+            } ?? "character.birthday.unknown".localized()
 
         birthday = .just(
             formatter("character.birthday".localized(), birthDate)

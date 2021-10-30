@@ -47,8 +47,7 @@ final class ReviewViewModel: ReviewViewModelType,
 
     init(character: Character) {
 
-        @Injected
-        var reviewRepository: ReviewRepositoryType
+        let reviewRepository: ReviewRepositoryType = resolve()
 
         title = .just("review.title".localized())
 

@@ -56,8 +56,7 @@ final class CharactersViewModel: CharactersViewModelType,
 
     init() {
 
-        @Injected
-        var charactersRepository: CharacterRepositoryType
+        let charactersRepository: CharacterRepositoryType = resolve()
 
         // Refresh the characters' database when the view loads
         viewDidLoad.flatMap {
